@@ -1,6 +1,6 @@
 .sidebar{
-    min-width: 20%;
-    max-width: 20%;
+    min-width: 15%;
+    width: 15%;
     height: 550px;
     background-color: #1E293B;
     display: flex;
@@ -12,6 +12,7 @@
 }
 
 .sidebar-header{
+    color: white;
     align-items: center;
     text-align: center;
     display: flex;
@@ -35,11 +36,14 @@
 }
 
 .categorybut{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: white;
     cursor: pointer;
     background-color: rgb(114, 24, 231);
-    width: 70%;
-    height: 50px;
+    width: 80%;
+    height: 60px;
     border-radius: 20px;
     margin-top: 20px;
 }
