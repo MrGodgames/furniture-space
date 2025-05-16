@@ -8,7 +8,7 @@ body {
 .header{
     display: flex;
     background-color: #1E293B;
-    height: 120px;
+    height: 100px;
     width: 100%;
     align-items: center;
     text-align: center;
@@ -45,6 +45,7 @@ body {
     opacity: 70%;
     align-items: center;
     text-align: left;
+    margin-top: 19px;
     margin-left: 20px;
     height: 100%;
 }
