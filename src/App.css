@@ -33,7 +33,8 @@ body {
     display: flex;
     gap: 20;
     height: 60px;
-    width: 50%;
+    min-width: 30%;
+    max-width: 60%;
     background-color: #2A3951;
     border-radius: 20px;
     margin-left: 5%;
@@ -75,15 +76,27 @@ body {
 }
 
 .nav-button{
+    cursor: pointer;
     display: flex;
     align-items: center;
     text-align: center;
     background-color: rgb(114, 24, 231);
-    border-radius: 50px;
+    border-radius: 20px;
     height: 50px;
     width: 50px;
     color: white;
 }
+.nav-button:hover{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background-color: rgb(93, 31, 175);
+    border-radius: 20px;
+    height: 50px;
+    width: 50px;
+    color: white;
+}
+
 .nav-buttonico{
     height: 50%;
     width: 100%;
@@ -91,10 +104,10 @@ body {
 }
 .phonenumber{
     color: white;
-    gap: 20px;
+    gap: 10px;
     display: flex;
     align-items: center;
-    margin-left: 4%;
+    margin-left: 8%;
     width: 30%;
 }
 .phonenumber p{
