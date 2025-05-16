@@ -1,5 +1,8 @@
 import { useState } from 'react'
 import './App.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPhone, faSearch } from '@fortawesome/free-solid-svg-icons';
+
 
 function App() {
   const [isHovered, setIsHovered] = useState(false)
@@ -16,10 +19,14 @@ function App() {
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
           >
+            <FontAwesomeIcon icon={faSearch} color='white'/>
           </button>
         </div>
+        <div className='phonenumber'>
+          <FontAwesomeIcon icon={faPhone}/>
+          <p>8 (800) 555-35-35</p>
+        </div>
         <div className="fastnav">
-
         </div>
       </div>
     </header>

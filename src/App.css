@@ -16,8 +16,10 @@ body {
 }
 
 .logo{
-    height: 100px;
-    width: 100px;
+    min-height: 100px;
+    min-width: 100px;
+    max-height: 100px;
+    max-width: 100px;
     margin-left: 5%;
 }
 
@@ -63,8 +65,18 @@ body {
 }
 
 .fastnav{
-    margin: 5%;
-    width: 30%;
+    margin: 0 2% 0 2%;
+    width: 60%;
     height: 60px;
     background-color: aqua;
+}
+.phonenumber{
+    gap: 20px;
+    display: flex;
+    align-items: center;
+    margin-left: 3%;
+    width: 30%;
+}
+.phonenumber p{
+    font-size: 18px;
 }
