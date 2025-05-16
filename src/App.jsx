@@ -11,7 +11,7 @@ function App() {
     <header>
       <div className="header">
         <div className="logo">
-          <img src="./public/images/logo.png" alt="logo" />
+          <img src="./src/assets/images/logo.png" alt="logo" />
         </div>
         <div className='search'>
           <p>Поиск...</p>
