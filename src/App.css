@@ -1,13 +1,13 @@
 
 body {
-  background-color: rgb(196, 196, 196);
+  background-color: rgb(255, 255, 255);
   padding: 0;
   margin: 0;
 }
 
 .header{
     display: flex;
-    background-color: rgb(233, 233, 233);
+    background-color: #1E293B;
     height: 120px;
     width: 100%;
     align-items: center;
@@ -18,8 +18,8 @@ body {
 .logo{
     min-height: 100px;
     min-width: 100px;
-    max-height: 100px;
-    max-width: 100px;
+    max-height: 200px;
+    max-width: 200px;
     margin-left: 5%;
 }
 
@@ -29,13 +29,14 @@ body {
 }
 
 .search{
+    color: white;
     display: flex;
     gap: 20;
     height: 60px;
-    width: 40%;
-    background-color: rgb(211, 211, 211);
+    width: 50%;
+    background-color: #2A3951;
     border-radius: 20px;
-    margin-left: 13%;
+    margin-left: 5%;
 }
 
 .search p{
@@ -51,7 +52,7 @@ body {
     border: none;
     cursor: pointer;
     height: 100%;
-    background-color: red;
+    background-color: rgb(114, 24, 231);
     width: 10%;
     border-radius: 0 20px 20px 0;
 }
@@ -59,22 +60,41 @@ body {
 .sr-button:hover{
     cursor: pointer;
     height: 100%;
-    background-color: rgb(165, 0, 0);
+    background-color: rgb(93, 31, 175);
     width: 10%;
     border-radius: 0 20px 20px 0;
 }
 
 .fastnav{
+    align-items: center;
+    display: flex;
+    gap: 30px;
     margin: 0 2% 0 2%;
     width: 60%;
     height: 60px;
-    background-color: aqua;
+}
+
+.nav-button{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background-color: rgb(114, 24, 231);
+    border-radius: 50px;
+    height: 50px;
+    width: 50px;
+    color: white;
+}
+.nav-buttonico{
+    height: 50%;
+    width: 100%;
+    color: white;
 }
 .phonenumber{
+    color: white;
     gap: 20px;
     display: flex;
     align-items: center;
-    margin-left: 3%;
+    margin-left: 4%;
     width: 30%;
 }
 .phonenumber p{
