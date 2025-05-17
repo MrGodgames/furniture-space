@@ -1,43 +1,43 @@
-
 body {
   background-color: #1E1E1E;
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
+/* Основные стили */
 .header{
     display: flex;
+    flex-wrap: wrap;
     background-color: #1E293B;
-    height: 100px;
+    min-height: 100px;
     width: 100%;
     align-items: center;
-    text-align: center;
-    
+    justify-content: space-between;
+    padding: 0 1rem;
+    box-sizing: border-box;
 }
 
 .logo{
-    min-height: 100px;
-    min-width: 100px;
-    max-height: 200px;
-    max-width: 200px;
-    margin-left: 5%;
+    height: 100px;
+    width: 100px;
+    margin-left: 2%;
 }
 
 .logo img{
     height: 100%;
     width: 100%;
+    object-fit: contain;
 }
 
 .search{
     color: white;
     display: flex;
-    gap: 20;
     height: 60px;
-    min-width: 30%;
-    max-width: 60%;
+    width: 30%;
     background-color: #2A3951;
     border-radius: 20px;
-    margin-left: 5%;
+    margin: 0 2%;
 }
 
 .search p{
@@ -70,17 +70,18 @@ body {
 .fastnav{
     align-items: center;
     display: flex;
-    gap: 30px;
-    margin: 0 2% 0 2%;
-    width: 60%;
-    height: 60px;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 0;
+    padding: 0 1rem;
+    justify-content: center;
 }
 
 .nav-button{
     cursor: pointer;
     display: flex;
     align-items: center;
-    text-align: center;
+    justify-content: center;
     background-color: rgb(114, 24, 231);
     border-radius: 20px;
     height: 50px;
@@ -90,7 +91,7 @@ body {
 .nav-button:hover{
     display: flex;
     align-items: center;
-    text-align: center;
+    justify-content: center;
     background-color: rgb(93, 31, 175);
     border-radius: 20px;
     height: 50px;
@@ -100,7 +101,7 @@ body {
 
 .nav-buttonico{
     height: 50%;
-    width: 100%;
+    width: 50%;
     color: white;
 }
 .phonenumber{
@@ -108,9 +109,63 @@ body {
     gap: 10px;
     display: flex;
     align-items: center;
-    margin-left: 8%;
-    width: 30%;
+    margin-left: auto;
+    margin-right: 2%;
 }
 .phonenumber p{
     font-size: 18px;
+}
+
+/* Медиа-запросы для адаптивности */
+@media screen and (max-width: 1024px) {
+    .search {
+        width: 40%;
+    }
+    
+    .fastnav {
+        gap: 10px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        height: auto;
+        padding: 1rem;
+    }
+    
+    .logo {
+        margin: 0 auto 1rem;
+    }
+    
+    .search {
+        width: 90%;
+        margin: 1rem auto;
+    }
+    
+    .fastnav {
+        width: 100%;
+        margin: 1rem 0;
+        justify-content: center;
+    }
+    
+    .phonenumber {
+        margin: 1rem auto;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .nav-button {
+        height: 40px;
+        width: 40px;
+    }
+    
+    .phonenumber p {
+        font-size: 16px;
+    }
+    
+    .search p {
+        font-size: 14px;
+        margin-top: 22px;
+    }
 }

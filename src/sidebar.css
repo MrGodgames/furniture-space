@@ -1,14 +1,14 @@
 .sidebar{
-    min-width: 15%;
-    width: 15%;
-    height: 550px;
+    width: 250px;
+    min-height: 550px;
     background-color: #1E293B;
     display: flex;
     flex-direction: column;
     margin: 30px;
     text-align: center;
     align-items: center;
-    border-radius: 20px ;
+    border-radius: 20px;
+    box-sizing: border-box;
 }
 
 .sidebar-header{
@@ -24,7 +24,8 @@
 
 .sidebar-header p{
     margin: auto;
-    font-size: 30px;
+    font-size: 24px;
+    padding: 0 10px;
 }
 
 .categories{
@@ -46,4 +47,65 @@
     height: 60px;
     border-radius: 20px;
     margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.categorybut:hover {
+    background-color: rgb(93, 31, 175);
+}
+
+/* Медиа-запросы для адаптивности */
+@media screen and (max-width: 1024px) {
+    .sidebar {
+        width: 220px;
+        margin: 20px;
+    }
+    
+    .sidebar-header {
+        height: 70px;
+    }
+    
+    .sidebar-header p {
+        font-size: 22px;
+    }
+    
+    .categorybut {
+        height: 55px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+        margin: 15px;
+    }
+    
+    .sidebar-header {
+        height: 60px;
+    }
+    
+    .sidebar-header p {
+        font-size: 20px;
+    }
+    
+    .categorybut {
+        height: 50px;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .sidebar {
+        width: calc(100% - 30px);
+        margin: 15px;
+        min-height: auto;
+    }
+    
+    .categories {
+        width: 100%;
+    }
+    
+    .categorybut {
+        width: 90%;
+    }
 }
