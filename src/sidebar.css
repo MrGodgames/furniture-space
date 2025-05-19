@@ -18,13 +18,14 @@
     text-align: center;
     display: flex;
     width: 100%;
-    background-color: rgb(114, 24, 231);
-    height: 80px;
+    height: 70px;
+    border-top: 2px solid rgb(114, 24, 231);
+    border-bottom: 2px solid rgb(114, 24, 231);
 }
 
 .sidebar-header p{
     margin: auto;
-    font-size: 24px;
+    font-size: 20px;
     padding: 0 10px;
 }
 
@@ -42,10 +43,10 @@
     align-items: center;
     color: white;
     cursor: pointer;
-    background-color: rgb(114, 24, 231);
-    width: 80%;
+    border: 2px solid rgb(114, 24, 231);
+    width: 90%;
     height: 60px;
-    border-radius: 20px;
+    border-radius: 10px;
     margin-top: 20px;
     transition: background-color 0.3s;
 }
@@ -54,6 +55,9 @@
     background-color: rgb(93, 31, 175);
 }
 
+.bar-buttonico{
+    padding: 10px;
+}
 /* Медиа-запросы для адаптивности */
 @media screen and (max-width: 1024px) {
     .sidebar {
