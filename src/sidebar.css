@@ -3,11 +3,12 @@
     min-height: 550px;
     background-color: #1E293B;
     display: flex;
+    position: sticky;
     flex-direction: column;
-    margin: 30px;
+
     text-align: center;
     align-items: center;
-    border-radius: 20px;
+    border-radius: 0  0 20px;
     box-sizing: border-box;
 }
 
@@ -19,7 +20,6 @@
     width: 100%;
     background-color: rgb(114, 24, 231);
     height: 80px;
-    border-radius: 20px 20px 0 0;
 }
 
 .sidebar-header p{
