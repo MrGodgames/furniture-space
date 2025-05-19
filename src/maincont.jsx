@@ -6,7 +6,7 @@ import { faAddressBook, faHeart, faPhone, faSearch, faShoppingCart, faUser } fro
     function Maincont() {
         return (
             
-            <div className="maincont">проверка</div>
+            <div className="main"></div>
         )
     }
 

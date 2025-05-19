@@ -7,7 +7,9 @@ import Maincont from './maincont.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />
+    <div className='maincontent'>
     <Sidebar />
     <Maincont />
+    </div>
   </StrictMode>,
 )

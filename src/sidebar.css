@@ -1,11 +1,11 @@
 .sidebar{
-    width: 250px;
+    width: 300px;
     min-height: 550px;
     background-color: #1E293B;
     display: flex;
     position: sticky;
     flex-direction: column;
-
+    height: 400px;
     text-align: center;
     align-items: center;
     border-radius: 0  0 20px;

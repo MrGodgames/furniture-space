@@ -1,5 +1,9 @@
 
-.maicont{
+.main{
     display: flex;
-    flex-direction:;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 1000px;
+    box-sizing: border-box;
+    background-color: aqua;
 }
