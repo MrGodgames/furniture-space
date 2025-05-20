@@ -5,7 +5,9 @@ import { faAddressBook, faHeart, faPhone, faSearch, faShoppingCart, faUser } fro
 
 function Hero() {
     return (
-        <div className='heroic'>heroheroheroherohero</div>
+        <div className='heroic'>
+            <img src="" alt="heroimg1" />
+        </div>
     )
 }
 export default Hero;
