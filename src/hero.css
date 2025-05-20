@@ -2,11 +2,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
     background-color: aqua;
     height: 450px;
-    width: 942px;
-    margin-left: 100px;
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
     border-radius: 20px;
+    overflow: hidden;
 }
 
 .heroic-image{
@@ -40,17 +43,28 @@
 
 .heroic-next{
     position: absolute;
-    text-decoration: none;
-    font-size: 16px;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 10;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .heroic-before{
     position: absolute;
-    height: 100px;
-    width: 100px;
-    left: 600px;
-    text-decoration: none;
-    font-size: 16px;
-    rotate: 180deg;
-    object-fit: cover;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%) rotate(180deg);
+    cursor: pointer;
+    z-index: 10;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

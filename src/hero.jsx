@@ -17,8 +17,8 @@ function Hero() {
                     <p>Всё что ты хочешь, у нас есть</p>
                     <button className='heroic-button'>Купить</button>
                 </div>
-                <img src={strelkaImg} alt="стрелка" style={{ width: 100, height: 100 }} className='heroic-before'/>
-                <img src={strelkaImg} alt="стрелка" style={{ width: 100, height: 100 }} className='heroic-next'/>
+                <img src={strelkaImg} alt="стрелка" className='heroic-before'/>
+                <img src={strelkaImg} alt="стрелка" className='heroic-next'/>
             </div>
         </>
     )
