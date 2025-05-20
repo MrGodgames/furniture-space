@@ -1,7 +1,56 @@
 .heroic{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: aqua;
     height: 450px;
     width: 942px;
     margin-left: 100px;
     border-radius: 20px;
+}
+
+.heroic-image{
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.heroic-image img{
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.heroic-text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+}
+
+.heroic-next{
+    position: absolute;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.heroic-before{
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    left: 600px;
+    text-decoration: none;
+    font-size: 16px;
+    rotate: 180deg;
+    object-fit: cover;
 }
