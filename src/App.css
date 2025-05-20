@@ -44,13 +44,18 @@ body {
     margin-left: 10%;
 }
 
-.search p{
+.search-input {
+    color: white;
     width: 100%;
+    height: 100%;
     opacity: 70%;
     align-items: center;
     text-align: left;
-    margin-left: 30px;
-    height: 100%;
+    border-radius: 20px 0 0 20px;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding-left: 20px;
 }
 
 .sr-button{
@@ -85,10 +90,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(114, 24, 231);
-    border-radius: 20px;
-    height: 50px;
-    width: 50px;
+    border: solid 2px rgb(114, 24, 231);
+    border-radius: 15px;
+    height: 45px;
+    width: 45px;
     color: white;
 }
 .nav-button:hover{
@@ -96,9 +101,6 @@ body {
     align-items: center;
     justify-content: center;
     background-color: rgb(93, 31, 175);
-    border-radius: 20px;
-    height: 50px;
-    width: 50px;
     color: white;
 }
 
@@ -114,6 +116,11 @@ body {
     align-items: center;
     margin-left: auto;
     margin-right: 2%;
+}
+
+.phonenumberico{
+    border-right: solid 2px rgb(114, 24, 231);
+    padding-right: 10px;
 }
 .phonenumber p{
     font-size: 18px;

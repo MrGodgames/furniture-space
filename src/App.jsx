@@ -14,7 +14,8 @@ function App() {
           <img src="./src/assets/images/logo.png" alt="logo" />
         </div>
         <div className='search'>
-          <p>Поиск...</p>
+          <input type="text" placeholder='Поиск...' className='search-input' />
+
           <button className={`sr-button ${isHovered ? 'hover' : ''}`}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
@@ -23,7 +24,7 @@ function App() {
           </button>
         </div>
         <div className='phonenumber'>
-          <FontAwesomeIcon icon={faPhone}/>
+          <FontAwesomeIcon icon={faPhone} className='phonenumberico'/>
           <p>8 (800) 555-35-35</p>
         </div>
         <div className="fastnav">

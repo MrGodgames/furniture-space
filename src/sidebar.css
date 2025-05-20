@@ -48,6 +48,7 @@
     height: 60px;
     border-radius: 10px;
     margin-top: 20px;
+    gap: 10px;
     transition: background-color 0.3s;
 }
 
@@ -55,9 +56,6 @@
     background-color: rgb(93, 31, 175);
 }
 
-.bar-buttonico{
-    padding: 10px;
-}
 /* Медиа-запросы для адаптивности */
 @media screen and (max-width: 1024px) {
     .sidebar {
