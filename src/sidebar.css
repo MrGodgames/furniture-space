@@ -8,8 +8,9 @@
     height: 400px;
     text-align: center;
     align-items: center;
-    border-radius: 0  0 20px;
+    border-radius: 20px;
     box-sizing: border-box;
+    margin-left: 200px;
 }
 
 .sidebar-header{
@@ -43,7 +44,6 @@
     align-items: center;
     color: white;
     cursor: pointer;
-    border: 2px solid rgb(114, 24, 231);
     width: 90%;
     height: 60px;
     border-radius: 10px;
