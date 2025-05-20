@@ -29,7 +29,6 @@
     width: 100%;
     border-radius: 20px;
     object-fit: cover;
-    transition: transform 0.3s ease;
 }
 
 .heroic-text{
@@ -48,8 +47,8 @@
     transform: translateY(-50%);
     cursor: pointer;
     z-index: 10;
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -62,8 +61,8 @@
     transform: translateY(-50%) rotate(180deg);
     cursor: pointer;
     z-index: 10;
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
