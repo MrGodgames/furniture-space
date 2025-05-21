@@ -32,12 +32,51 @@
 }
 
 .heroic-text{
-    position: absolute;
+    display: flex;
+    height: 265px;
+    width: 500px;
+    flex-direction: column;
+    transform: translateY(-50%);
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    left: 150px;
+    position: absolute;
     color: white;
-    text-align: center;
+    justify-content: center;
+
+}
+.heroic-text h1 {
+	font-size: 3rem;
+	font-weight: 700;
+	margin-bottom: 20px;
+	line-height: 1.2;
+	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+.heroic-text p {
+	font-size: 1.2rem;
+	margin-bottom: 25px;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+	max-width: 90%;
+}
+
+.heroic-button{
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 20px;
+    width: 200px;
+    height: 48px;
+    cursor: pointer;
+    background-color: rgb(114, 24, 231);
+    box-shadow: 0 4px 10px rgba(120, 18, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.heroic-button:hover{
+    background-color: rgb(137, 46, 255);
+    box-shadow: 0 4px 10px rgba(120, 18, 255, 0.7);
+    transform: translateY(-3px);
 }
 
 .heroic-next{
