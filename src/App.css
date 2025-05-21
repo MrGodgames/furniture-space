@@ -1,5 +1,5 @@
 body {
-  background-color: #1E1E1E;
+  background-color: #f5efcd;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -10,7 +10,7 @@ body {
 .header{
     display: flex;
     flex-wrap: wrap;
-    background-color: #1E293B;
+    background-color: #606C38;
     min-height: 100px;
     width: 100%;
     height: 100%;
@@ -19,6 +19,7 @@ body {
     justify-content: space-between;
     padding: 0 1rem;
     box-sizing: border-box;
+    box-shadow: 0 4px 10px rgba(96, 108, 56, 0.8);
 }
 
 .logo{
@@ -34,19 +35,19 @@ body {
 }
 
 .search{
-    color: white;
+    color: rgb(0, 0, 0);
     display: flex;
     height: 45px;
     width: 30%;
     justify-content: center;
-    background-color: #2A3951;
+    background-color: #283618;
     border-radius: 20px;
     margin: 0 2%;
     margin-left: 10%;
 }
 
 .search-input {
-    color: white;
+    color: rgb(255, 255, 255);
     width: 100%;
     height: 100%;
     opacity: 70%;
@@ -63,7 +64,7 @@ body {
     border: none;
     cursor: pointer;
     height: 100%;
-    background-color: rgb(114, 24, 231);
+    background-color: #DDA15E;
     width: 10%;
     border-radius: 0 20px 20px 0;
 }
@@ -71,7 +72,7 @@ body {
 .sr-button:hover{
     cursor: pointer;
     height: 100%;
-    background-color: rgb(93, 31, 175);
+    background-color: #BC6C25;
     width: 10%;
     border-radius: 0 20px 20px 0;
 }
@@ -91,27 +92,27 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: solid 2px rgb(114, 24, 231);
+    border: solid 4px #CB997E;
     border-radius: 15px;
     height: 45px;
     width: 45px;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 .nav-button:hover{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(93, 31, 175);
-    color: white;
+    background-color: #DDBEA9;
+    color: rgb(0, 0, 0);
 }
 
 .nav-buttonico{
     height: 50%;
     width: 50%;
-    color: white;
+    color: rgb(255, 255, 255);
 }
 .phonenumber{
-    color: white;
+    color: rgb(255, 255, 255);
     gap: 10px;
     display: flex;
     align-items: center;
@@ -120,7 +121,7 @@ body {
 }
 
 .phonenumberico{
-    border-right: solid 2px rgb(114, 24, 231);
+    border-right: solid 4px #CB997E;
     padding-right: 10px;
 }
 .phonenumber p{

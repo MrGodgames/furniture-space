@@ -33,26 +33,27 @@
 
 .heroic-text{
     display: flex;
-    height: 265px;
-    width: 500px;
+    height: 100%;
+    width: 100%;
     flex-direction: column;
-    transform: translateY(-50%);
-    top: 50%;
-    left: 150px;
     position: absolute;
     color: white;
     justify-content: center;
+    background-color: rgba(0, 0, 0, 0.342);
+    border-radius: 30px;
 
 }
 .heroic-text h1 {
 	font-size: 3rem;
+    margin-left: 150px;
 	font-weight: 700;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 	line-height: 1.2;
 	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 .heroic-text p {
 	font-size: 1.2rem;
+    margin-left: 150px;
 	margin-bottom: 25px;
 	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 	max-width: 90%;
@@ -60,6 +61,7 @@
 
 .heroic-button{
     color: white;
+    margin-left: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -68,14 +70,14 @@
     width: 200px;
     height: 48px;
     cursor: pointer;
-    background-color: rgb(114, 24, 231);
-    box-shadow: 0 4px 10px rgba(120, 18, 255, 0.3);
+    background-color: #DDA15E;
+    box-shadow: 0 4px 10px rgba(221, 161, 94, 0.6);
     transition: all 0.3s ease;
 }
 
 .heroic-button:hover{
-    background-color: rgb(137, 46, 255);
-    box-shadow: 0 4px 10px rgba(120, 18, 255, 0.7);
+    background-color: #BC6C25;
+    box-shadow: 0 4px 10px rgba(188, 108, 37, 0.9);
     transform: translateY(-3px);
 }
 
@@ -97,7 +99,7 @@
     position: absolute;
     top: 50%;
     left: 20px;
-    transform: translateY(-50%) rotate(180deg);
+    transform: translateY(-50%);
     cursor: pointer;
     z-index: 10;
     width: 70px;

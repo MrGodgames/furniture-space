@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './hero.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAddressBook, faHeart, faPhone, faSearch, faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faAddressBook, faArrowRight, faArrowRightLong, faChevronLeft, faChevronRight, faHeart, faPhone, faSearch, faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
 import strelkaImg from './assets/items/strelka.svg';
 
 function Hero() {
@@ -17,8 +17,8 @@ function Hero() {
                     <p>Всё что ты хочешь, у нас есть</p>
                     <button className='heroic-button'>Купить</button>
                 </div>
-                <img src={strelkaImg} alt="стрелка" className='heroic-before'/>
-                <img src={strelkaImg} alt="стрелка" className='heroic-next'/>
+                <button className='heroic-before'><i><FontAwesomeIcon icon={faChevronLeft}/></i></button>
+                <button className='heroic-next'><i><FontAwesomeIcon icon={faChevronRight}/></i></button>
             </div>
         </>
     )
