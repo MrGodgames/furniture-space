@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAddressBook, faHeart, faPhone, faSearch, faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
-
+import { Link } from 'react-router-dom';
 
 function App() {
   const [isHovered, setIsHovered] = useState(false)
@@ -30,7 +30,9 @@ function App() {
         <div className="fastnav">
         <i className='nav-button'><FontAwesomeIcon icon={faHeart} className='nav-buttonico'/></i>
         <i className='nav-button'><FontAwesomeIcon icon={faUser} className='nav-buttonico'/></i>
-        <i className='nav-button'><FontAwesomeIcon icon={faShoppingCart} className='nav-buttonico'/></i>
+        <Link to="/cart">
+          <i className='nav-button'><FontAwesomeIcon icon={faShoppingCart} className='nav-buttonico'/></i>
+        </Link>
         <i className='nav-button'><FontAwesomeIcon icon={faAddressBook} className='nav-buttonico'/></i>
         </div>
       </div>

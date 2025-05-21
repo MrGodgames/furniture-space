@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './sidebar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAddressBook, faHeart, faPhone, faSearch, faShoppingCart, faUser, faHome, faBed } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
     function Sidebar() {
         return (
@@ -10,9 +11,15 @@ import { faAddressBook, faHeart, faPhone, faSearch, faShoppingCart, faUser, faHo
                     <p>Категории</p>
                     </div>
                 <div className="categories">
-                    <a className='categorybut'><FontAwesomeIcon icon={faHome} className='bar-buttonico'/>Главная</a>
-                    <a className='categorybut'><FontAwesomeIcon icon={faHome} className='bar-buttonico'/>Шкафы</a>
-                    <a className='categorybut'><FontAwesomeIcon icon={faBed} className='bar-buttonico'/>Диваны</a>
+                    <Link to="/" className='categorybut'>
+                        <FontAwesomeIcon icon={faHome} className='bar-buttonico'/>Главная
+                    </Link>
+                    <Link to="/" className='categorybut'>
+                        <FontAwesomeIcon icon={faHome} className='bar-buttonico'/>Шкафы
+                    </Link>
+                    <Link to="/" className='categorybut'>
+                        <FontAwesomeIcon icon={faBed} className='bar-buttonico'/>Диваны
+                    </Link>
                 </div>
             </nav>
         )
