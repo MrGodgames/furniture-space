@@ -33,7 +33,9 @@ function App() {
         <Link to="/cart">
           <i className='nav-button'><FontAwesomeIcon icon={faShoppingCart} className='nav-buttonico'/></i>
         </Link>
+        <Link to="/about">
         <i className='nav-button'><FontAwesomeIcon icon={faAddressBook} className='nav-buttonico'/></i>
+        </Link>
         </div>
       </div>
     </header>

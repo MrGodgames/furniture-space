@@ -2,7 +2,6 @@ import { useState } from 'react'
 import './hero.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAddressBook, faArrowRight, faArrowRightLong, faChevronLeft, faChevronRight, faHeart, faPhone, faSearch, faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
-import strelkaImg from './assets/items/strelka.svg';
 
 function Hero() {
     return (
