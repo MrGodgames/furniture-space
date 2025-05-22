@@ -29,7 +29,9 @@ function App() {
         </div>
         <div className="fastnav">
         <i className='nav-button'><FontAwesomeIcon icon={faHeart} className='nav-buttonico'/></i>
+        <Link to="/profile">
         <i className='nav-button'><FontAwesomeIcon icon={faUser} className='nav-buttonico'/></i>
+        </Link>
         <Link to="/cart">
           <i className='nav-button'><FontAwesomeIcon icon={faShoppingCart} className='nav-buttonico'/></i>
         </Link>

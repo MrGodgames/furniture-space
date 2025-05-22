@@ -6,6 +6,7 @@ import Sidebar from './sidebar.jsx'
 import Hero from './hero.jsx'
 import Cart from './pages/cart.jsx'
 import About from './pages/about.jsx'
+import Profile from './pages/profile.jsx'
 
 const Home = () => (
   <div className='maincontent'>
@@ -22,6 +23,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/" element={<Home />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/about" element={<About />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,
