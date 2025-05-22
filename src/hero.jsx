@@ -1,25 +1,96 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './hero.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAddressBook, faArrowRight, faArrowRightLong, faChevronLeft, faChevronRight, faHeart, faPhone, faSearch, faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+
+const slides = [
+  {
+    image: "https://ruminatop.ru/hero.jpeg",
+    title: "Купи себе что-то",
+    description: "Всё что ты хочешь, у нас есть",
+    buttonText: "Купить"
+  },
+  {
+    image: "https://ruminatop.ru/about.jpg",
+    title: "Новая коллекция",
+    description: "Скидки до 50% на все товары",
+    buttonText: "Смотреть"
+  },
+  {
+    image: "https://ruminatop.ru/hero.jpeg",
+    title: "Ограниченное предложение",
+    description: "Только этой неделей",
+    buttonText: "Успеть"
+  }
+];
+
 
 function Hero() {
+    const [currentSlide, setCurrentSlide] = useState(0);
+    const [isAutoPlay, setIsAutoPlay] = useState(true);
+    
+    useEffect(() => {
+      let interval;
+      if (isAutoPlay) {
+        interval = setInterval(() => {
+          goToNextSlide();
+        }, 5000);
+      }
+      return () => clearInterval(interval);
+    }, [currentSlide, isAutoPlay]);
+    
+    const goToNextSlide = () => {
+      setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+    };
+    
+    const goToPrevSlide = () => {
+      setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+    };
+    
+    const goToSlide = (index) => {
+      setCurrentSlide(index);
+      setIsAutoPlay(false);
+      setTimeout(() => setIsAutoPlay(true), 10000);
+    };
+  
     return (
-
-        <>
-            <div className='heroic'>
-                <div className='heroic-image'>
-                    <img src="https://ruminatop.ru/hero.jpeg" alt="heroimg" />
-                </div>
-                <div className='heroic-text'>
-                    <h1>Купи себе что-то</h1>
-                    <p>Всё что ты хочешь, у нас есть</p>
-                    <button className='heroic-button'>Купить</button>
-                </div>
-                <button className='heroic-before'><i><FontAwesomeIcon icon={faChevronLeft}/></i></button>
-                <button className='heroic-next'><i><FontAwesomeIcon icon={faChevronRight}/></i></button>
-            </div>
-        </>
+      <div className='heroic'>
+        <div className='heroic-image'>
+          {slides.map((slide, index) => (
+            <img
+              key={index}
+              src={slide.image}
+              alt={`Slide ${index + 1}`}
+              className={index === currentSlide ? 'active' : ''}
+            />
+          ))}
+        </div>
+        
+        <div className='heroic-text'>
+          <h1>{slides[currentSlide].title}</h1>
+          <p>{slides[currentSlide].description}</p>
+          <button className='heroic-button'>{slides[currentSlide].buttonText}</button>
+        </div>
+        
+        <button className='heroic-before' onClick={goToPrevSlide}>
+          <FontAwesomeIcon icon={faChevronLeft}/>
+        </button>
+        
+        <button className='heroic-next' onClick={goToNextSlide}>
+          <FontAwesomeIcon icon={faChevronRight}/>
+        </button>
+        
+        <div className="slide-indicators">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              className={`indicator ${index === currentSlide ? 'active' : ''}`}
+              onClick={() => goToSlide(index)}
+            />
+          ))}
+        </div>
+      </div>
     )
-}
-export default Hero;
+  }
+  
+  export default Hero;

@@ -1,37 +1,41 @@
-.heroic{
+.heroic {
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    background-color: aqua;
     height: 450px;
     max-width: 1000px;
     width: 100%;
     margin-right: 2%;
     border-radius: 20px;
     overflow: hidden;
-}
-
-.heroic-image{
-    height: 100%;
-    width: 100%;
-    border-radius: 20px;
-    overflow: hidden;
+  }
+  
+  .heroic-image {
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.heroic-image img{
     height: 100%;
     width: 100%;
-    border-radius: 20px;
+    overflow: hidden;
+  }
+  
+  .heroic-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-}
-
-.heroic-text{
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    border-radius: 20px;
+  }
+  
+  .heroic-image img.active {
+    opacity: 1;
+    z-index: 1;
+  }
+  
+  .heroic-text {
     display: flex;
     height: 100%;
     width: 100%;
@@ -41,25 +45,27 @@
     justify-content: center;
     background-color: rgba(0, 0, 0, 0.342);
     border-radius: 30px;
-
-}
-.heroic-text h1 {
-	font-size: 3rem;
+    z-index: 2;
+  }
+  
+  .heroic-text h1 {
+    font-size: 3rem;
     margin-left: 150px;
-	font-weight: 700;
-	margin-bottom: 10px;
-	line-height: 1.2;
-	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-}
-.heroic-text p {
-	font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    line-height: 1.2;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  }
+  
+  .heroic-text p {
+    font-size: 1.2rem;
     margin-left: 150px;
-	margin-bottom: 25px;
-	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-	max-width: 90%;
-}
-
-.heroic-button{
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    max-width: 90%;
+  }
+  
+  .heroic-button {
     color: white;
     margin-left: 150px;
     display: flex;
@@ -73,38 +79,85 @@
     background-color: #DDA15E;
     box-shadow: 0 4px 10px rgba(221, 161, 94, 0.6);
     transition: all 0.3s ease;
-}
-
-.heroic-button:hover{
+  }
+  
+  .heroic-button:hover {
     background-color: #BC6C25;
     box-shadow: 0 4px 10px rgba(188, 108, 37, 0.9);
     transform: translateY(-3px);
-}
-
-.heroic-next{
+  }
+  
+  .heroic-next {
+    color: white;
     position: absolute;
+    border-radius: 25px;
+    background-color: #DDA15E;
+    border: none;
     top: 50%;
     right: 20px;
     transform: translateY(-50%);
     cursor: pointer;
     z-index: 10;
-    width: 70px;
-    height: 70px;
+    width: 65px;
+    height: 65px;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.heroic-before{
+    transition: all 0.2s ease;
+  }
+  
+  .heroic-next:hover {
+    background-color: #BC6C25;
+  }
+  
+  .heroic-before {
+    color: white;
     position: absolute;
+    border-radius: 25px;
+    background-color: #DDA15E;
+    border: none;
     top: 50%;
     left: 20px;
     transform: translateY(-50%);
     cursor: pointer;
     z-index: 10;
-    width: 70px;
-    height: 70px;
+    width: 65px;
+    height: 65px;
     display: flex;
     justify-content: center;
     align-items: center;
-}
+    transition: all 0.2s ease;
+  }
+  
+  .heroic-before:hover {
+    background-color: #BC6C25;
+  }
+  
+  .slide-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+  }
+  
+  .indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .indicator.active {
+    background-color: #DDA15E;
+    transform: scale(1.2);
+  }
+  
+  .indicator:hover {
+    background-color: #BC6C25;
+  }
