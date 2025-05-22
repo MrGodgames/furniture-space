@@ -17,7 +17,7 @@ const slides = [
     buttonText: "Смотреть"
   },
   {
-    image: "https://ruminatop.ru/hero.jpeg",
+    image: "https://ruminatop.ru/uploads/9d58ebc8-13a2-4b25-973f-318366747f42.jpeg",
     title: "Ограниченное предложение",
     description: "Только этой неделей",
     buttonText: "Успеть"
