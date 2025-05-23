@@ -79,6 +79,7 @@
     background-color: #DDA15E;
     box-shadow: 0 4px 10px rgba(221, 161, 94, 0.6);
     transition: all 0.3s ease;
+    text-decoration: none;
   }
   
   .heroic-button:hover {

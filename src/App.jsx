@@ -31,7 +31,7 @@ function App() {
           <NavLink to="/favorites" className={({ isActive }) => isActive ? 'nav-button active' : 'nav-button'}>
             <FontAwesomeIcon icon={faHeart} />
           </NavLink>
-          <NavLink to="/contacts" className={({ isActive }) => isActive ? 'nav-button active' : 'nav-button'}>
+          <NavLink to="/about" className={({ isActive }) => isActive ? 'nav-button active' : 'nav-button'}>
             <FontAwesomeIcon icon={faAddressBook} />
           </NavLink>
           <NavLink to="/cart" className={({ isActive }) => isActive ? 'nav-button active' : 'nav-button'}>

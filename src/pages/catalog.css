@@ -1,0 +1,20 @@
+.catalog-container{
+    display: flex;
+    color: white;
+    flex-direction: column;
+    height: 470px;
+    width: 900px;
+    background-color: #606C38;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(96, 108, 56, 0.8);
+}
+.catalog-container h1{
+    font-size: 24px;
+    font-weight: 600;
+    margin: 20px;
+}
+.catalog-container p{
+    font-size: 16px;
+    font-weight: 400;
+    margin: 20px;
+}

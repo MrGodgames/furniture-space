@@ -2,25 +2,29 @@ import { useState, useEffect } from 'react'
 import './hero.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { NavLink } from 'react-router-dom';
 
 const slides = [
   {
     image: "https://ruminatop.ru/hero.jpeg",
     title: "Купи себе что-то",
     description: "Всё что ты хочешь, у нас есть",
-    buttonText: "Купить"
+    buttonText: "Купить",
+    url: "/catalog"
   },
   {
     image: "https://ruminatop.ru/about.jpg",
     title: "Новая коллекция",
     description: "Скидки до 50% на все товары",
-    buttonText: "Смотреть"
+    buttonText: "Смотреть",
+    url: "/new-collection"
   },
   {
     image: "https://ruminatop.ru/uploads/9d58ebc8-13a2-4b25-973f-318366747f42.jpeg",
     title: "Ограниченное предложение",
     description: "Только этой неделей",
-    buttonText: "Успеть"
+    buttonText: "Успеть",
+    url: "/special-offer"
   }
 ];
 
@@ -69,7 +73,9 @@ function Hero() {
         <div className='heroic-text'>
           <h1>{slides[currentSlide].title}</h1>
           <p>{slides[currentSlide].description}</p>
-          <button className='heroic-button'>{slides[currentSlide].buttonText}</button>
+          <NavLink to={slides[currentSlide].url} className='heroic-button'>
+            {slides[currentSlide].buttonText}
+          </NavLink>
         </div>
         
         <button className='heroic-before' onClick={goToPrevSlide}>
