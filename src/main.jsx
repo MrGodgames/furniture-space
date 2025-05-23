@@ -8,11 +8,13 @@ import Cart from './pages/cart.jsx'
 import About from './pages/about.jsx'
 import Profile from './pages/profile.jsx'
 import Catalog from './pages/catalog.jsx'
+import Filter from './components/filter.jsx'
 
 const Home = () => (
   <div className='maincontent'>
     <Sidebar />
     <Hero />
+    <Filter />
   </div>
 )
 
