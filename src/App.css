@@ -96,14 +96,16 @@ body {
     border-radius: 15px;
     height: 45px;
     width: 45px;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    text-decoration: none;
 }
+
 .nav-button:hover{
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #DDBEA9;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 }
 
 .nav-buttonico{
@@ -111,6 +113,13 @@ body {
     width: 50%;
     color: rgb(255, 255, 255);
 }
+
+.nav-button.active {
+    color: #ffffff;
+    background-color: #CB997E;
+    transition: all 0.3s ease;
+}
+
 .phonenumber{
     color: rgb(255, 255, 255);
     gap: 10px;

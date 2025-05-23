@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAddressBook, faHeart, faPhone, faSearch, faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function App() {
   const [isHovered, setIsHovered] = useState(false)
@@ -28,16 +28,18 @@ function App() {
           <p>8 (800) 555-35-35</p>
         </div>
         <div className="fastnav">
-        <i className='nav-button'><FontAwesomeIcon icon={faHeart} className='nav-buttonico'/></i>
-        <Link to="/profile">
-        <i className='nav-button'><FontAwesomeIcon icon={faUser} className='nav-buttonico'/></i>
-        </Link>
-        <Link to="/cart">
-          <i className='nav-button'><FontAwesomeIcon icon={faShoppingCart} className='nav-buttonico'/></i>
-        </Link>
-        <Link to="/about">
-        <i className='nav-button'><FontAwesomeIcon icon={faAddressBook} className='nav-buttonico'/></i>
-        </Link>
+          <NavLink to="/favorites" className={({ isActive }) => isActive ? 'nav-button active' : 'nav-button'}>
+            <FontAwesomeIcon icon={faHeart} />
+          </NavLink>
+          <NavLink to="/contacts" className={({ isActive }) => isActive ? 'nav-button active' : 'nav-button'}>
+            <FontAwesomeIcon icon={faAddressBook} />
+          </NavLink>
+          <NavLink to="/cart" className={({ isActive }) => isActive ? 'nav-button active' : 'nav-button'}>
+            <FontAwesomeIcon icon={faShoppingCart} />
+          </NavLink>
+          <NavLink to="/profile" className={({ isActive }) => isActive ? 'nav-button active' : 'nav-button'}>
+            <FontAwesomeIcon icon={faUser} />
+          </NavLink>
         </div>
       </div>
     </header>
