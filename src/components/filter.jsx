@@ -1,28 +1,55 @@
 import { useState } from 'react'
 import './filter.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
-import { NavLink } from 'react-router-dom';
 
 const Filter = () => {
-    const [minPrice, setMinPrice] = useState(0);
-    const [maxPrice, setMaxPrice] = useState(1000);
+    const [minPrice, setMinPrice] = useState('');
+    const [maxPrice, setMaxPrice] = useState('');
+    
+    const handleApplyFilter = () => {
+        console.log('Фильтр в диапазоне:', { minPrice, maxPrice });
+    };
+
+    const handleMinPriceChange = (e) => {
+        const value = e.target.value;
+        if (value === '' || /^\d+$/.test(value)) {
+            setMinPrice(value);
+        }
+    };
+
+    const handleMaxPriceChange = (e) => {
+        const value = e.target.value;
+        if (value === '' || /^\d+$/.test(value)) {
+            setMaxPrice(value);
+        }
+    };
+
     return (
         <div className="filter-container">
             <div className="filter-header">
                 <h2>Фильтр</h2>
             </div>
             <div className="filter-body">
+                <h3>Цена</h3>
                 <div className="filter-item">
-                    <h3>Цена</h3>
-                    <input type="range" min="0" max="50000" />
-                    <p>От {minPrice} до {maxPrice}</p>
+                    <input 
+                        type="text" 
+                        value={minPrice} 
+                        onChange={handleMinPriceChange} 
+                        placeholder='От' 
+                    />
+                    <input 
+                        type="text" 
+                        value={maxPrice} 
+                        onChange={handleMaxPriceChange} 
+                        placeholder='До' 
+                    />
                 </div>
             </div>
             <div className="filter-footer">
-                <button>Применить</button>
+                <button onClick={handleApplyFilter}>Применить</button>
             </div> 
         </div>
     );
 };
+
 export default Filter;
