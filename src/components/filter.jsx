@@ -19,6 +19,9 @@ const Filter = () => {
                     <p>От {minPrice} до {maxPrice}</p>
                 </div>
             </div>
+            <div className="filter-footer">
+                <button>Применить</button>
+            </div> 
         </div>
     );
 };

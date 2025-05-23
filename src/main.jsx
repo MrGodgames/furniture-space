@@ -11,10 +11,14 @@ import Catalog from './pages/catalog.jsx'
 import Filter from './components/filter.jsx'
 
 const Home = () => (
-  <div className='maincontent'>
-    <Sidebar />
-    <Hero />
-    <Filter />
+  <div>
+    <div className='maincontent'>
+      <Sidebar />
+      <Hero />
+    </div>
+    <div>
+      <Filter />
+    </div>
   </div>
 )
 
