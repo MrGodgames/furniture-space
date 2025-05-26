@@ -6,7 +6,6 @@
     display: flex;
     position: sticky;
     flex-direction: column;
-    height: 400px;
     text-align: center;
     align-items: center;
     border-radius: 20px;
@@ -59,10 +58,9 @@
 }
 
 /* Медиа-запросы для адаптивности */
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1530px) {
     .sidebar {
-        width: 220px;
-        margin: 20px;
+        width: 260px;
     }
     
     .sidebar-header {
@@ -81,7 +79,6 @@
 @media screen and (max-width: 768px) {
     .sidebar {
         width: 200px;
-        margin: 15px;
     }
     
     .sidebar-header {
@@ -101,7 +98,6 @@
 @media screen and (max-width: 480px) {
     .sidebar {
         width: calc(100% - 30px);
-        margin: 15px;
         min-height: auto;
     }
     
