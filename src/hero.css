@@ -162,3 +162,33 @@
   .indicator:hover {
     background-color: #BC6C25;
   }
+
+
+  @media screen and (max-width: 1530px){
+    .heroic{
+      height: 400px;
+      width: 800px;
+    }
+
+    .heroic-text h1{
+      font-size: 2rem;
+    }
+
+    .heroic-before{
+      width: 55px;
+      height: 55px;
+      border-radius: 20px;
+    }
+
+    .heroic-next{
+      width: 55px;
+      height: 55px;
+      border-radius: 20px;
+    }
+
+    .heroic-button{
+      width: 150px;
+      height: 38px;
+      font-size: 0.8rem;
+    }
+}
