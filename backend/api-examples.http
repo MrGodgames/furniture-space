@@ -1,0 +1,113 @@
+### FurnitureSpace API Examples
+
+### Get all categories
+GET https://localhost:5001/api/categories
+Accept: application/json
+
+### Get category by ID
+GET https://localhost:5001/api/categories/1
+Accept: application/json
+
+### Get category by slug
+GET https://localhost:5001/api/categories/slug/sofas
+Accept: application/json
+
+### Get categories with products
+GET https://localhost:5001/api/categories/with-products
+Accept: application/json
+
+### Create new category
+POST https://localhost:5001/api/categories
+Content-Type: application/json
+
+{
+  "name": "Диваны",
+  "slug": "sofas"
+}
+
+### Update category
+PUT https://localhost:5001/api/categories/1
+Content-Type: application/json
+
+{
+  "name": "Мягкая мебель",
+  "slug": "soft-furniture"
+}
+
+### Delete category
+DELETE https://localhost:5001/api/categories/1
+
+### Get all products
+GET https://localhost:5001/api/products
+Accept: application/json
+
+### Get product by ID
+GET https://localhost:5001/api/products/1
+Accept: application/json
+
+### Get products by category
+GET https://localhost:5001/api/products/category/1
+Accept: application/json
+
+### Get featured products
+GET https://localhost:5001/api/products/featured
+Accept: application/json
+
+### Get new products
+GET https://localhost:5001/api/products/new
+Accept: application/json
+
+### Get products in stock
+GET https://localhost:5001/api/products/in-stock
+Accept: application/json
+
+### Search products
+GET https://localhost:5001/api/products/search?searchTerm=диван
+Accept: application/json
+
+### Get products by price range
+GET https://localhost:5001/api/products/price-range?minPrice=1000&maxPrice=5000
+Accept: application/json
+
+### Create new product
+POST https://localhost:5001/api/products
+Content-Type: application/json
+
+{
+  "name": "Угловой диван",
+  "price": 45000.00,
+  "discount": 10,
+  "image": "sofa1.jpg",
+  "category": "Диваны",
+  "categoryId": 1,
+  "rating": 4.5,
+  "isNew": true,
+  "inStock": true,
+  "description": "Удобный угловой диван для гостиной",
+  "isFeatured": false,
+  "images": ["sofa1.jpg", "sofa1_2.jpg"],
+  "colors": ["#8B4513", "#D2691E", "#F5DEB3"]
+}
+
+### Update product
+PUT https://localhost:5001/api/products/1
+Content-Type: application/json
+
+{
+  "name": "Угловой диван Premium",
+  "price": 50000.00,
+  "discount": 15,
+  "image": "sofa1_updated.jpg",
+  "category": "Диваны",
+  "categoryId": 1,
+  "rating": 4.8,
+  "isNew": false,
+  "inStock": true,
+  "description": "Премиальный угловой диван для гостиной",
+  "isFeatured": true,
+  "images": ["sofa1_updated.jpg", "sofa1_2.jpg", "sofa1_3.jpg"],
+  "colors": ["#8B4513", "#D2691E", "#F5DEB3", "#000000"]
+}
+
+### Delete product
+DELETE https://localhost:5001/api/products/1 
