@@ -98,7 +98,7 @@
     right: 20px;
     transform: translateY(-50%);
     cursor: pointer;
-    z-index: 10;
+    z-index: 9;
     width: 65px;
     height: 65px;
     display: flex;
@@ -121,7 +121,7 @@
     left: 20px;
     transform: translateY(-50%);
     cursor: pointer;
-    z-index: 10;
+    z-index: 9;
     width: 65px;
     height: 65px;
     display: flex;

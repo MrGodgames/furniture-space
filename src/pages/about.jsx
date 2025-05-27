@@ -2,11 +2,19 @@ import React from 'react';
 import './about.css';
 import '../App.css';
 import Sidebar from '../sidebar.jsx';
+import App from '../App.jsx';
 
 function About() {
   return (
-    <div className="maincontent">
+    <div>
+    <div  className='header-container'>
+      <App />
+    </div>
+    <div  className='main-container'>
+    <div className='sidebar-container'>
       <Sidebar />
+      </div>
+      <div className='maincontent'>
       <div className="about-page">
         <h1>О нас</h1>
         <div className="about-container">
@@ -17,6 +25,8 @@ function About() {
         </div>
       </div>
     </div>
+      </div>
+      </div>
   );
 }
 

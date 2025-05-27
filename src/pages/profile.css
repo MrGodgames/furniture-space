@@ -1,3 +1,12 @@
-.profile-page h1{
-    color: rgb(101, 100, 100);
+.profile-page{
+    display: flex;
+    color: white;
+    background-color: #606C38;
+    border-radius: 20px;
+    flex-direction: column;
+    box-shadow: 0 4px 10px rgba(96, 108, 56, 0.8);
+    align-items: center;
+    justify-content: center;
+    width: 900px;
+    height: 470px;
 }
