@@ -9,15 +9,14 @@ import About from './pages/about.jsx'
 import Profile from './pages/profile.jsx'
 import Catalog from './pages/catalog.jsx'
 import Filter from './components/filter.jsx'
+import TopCat from './components/topcat.jsx'
 
 const Home = () => (
   <div>
     <div className='maincontent'>
       <Sidebar />
       <Hero />
-    </div>
-    <div>
-      <Filter />
+      <TopCat />
     </div>
   </div>
 )
