@@ -10,6 +10,7 @@ import Profile from './pages/profile.jsx'
 import Catalog from './pages/catalog.jsx'
 import Filter from './components/filter.jsx'
 import TopCat from './components/topcat.jsx'
+import NewProduct from './components/newproduct.jsx'
 
 const Home = () => (
   <div>
@@ -23,6 +24,7 @@ const Home = () => (
       <div className='maincontent'>
       <Hero />
       <TopCat />
+      <NewProduct />
       </div>
       </div>
   </div>
