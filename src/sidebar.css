@@ -58,7 +58,7 @@
 }
 
 /* Медиа-запросы для адаптивности */
-@media screen and (max-width: 1530px) {
+@media screen and (max-width: 1630px) {
     .sidebar {
         width: 260px;
     }

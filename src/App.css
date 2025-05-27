@@ -140,7 +140,7 @@ body {
 
 
 /* Медиа-запросы для адаптивности */
-@media screen and (max-width: 1530px) {
+@media screen and (max-width: 1630px) {
     .search {
         width: 35%;
         height: 40px;
