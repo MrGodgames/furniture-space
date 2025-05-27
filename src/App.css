@@ -9,6 +9,8 @@ body {
 /* Основные стили */
 .header{
     display: flex;
+    position: sticky;
+    top: 0; /* прилипает к верху при скролле */
     flex-wrap: wrap;
     background-color: #606C38;
     min-height: 100px;
@@ -201,8 +203,30 @@ body {
 
 .maincontent{
     display: flex;
+    flex-direction: column;
     margin-top: 30px;
-    gap: 10%;
     height: 100%;
     width: 100%;
+}
+
+.sidebar-container{
+    display: flex;
+    position: sticky;
+    top: 120px; /* прилипает к верху при скролле */
+    max-height: 550px;
+    position: sticky;
+    margin: 20px;
+}
+
+.main-container{
+    display: flex;
+    gap: 10%;
+}
+
+.header-container{
+    height: 100%;
+    width: 100%;
+    position: sticky;
+    z-index: 10;
+    top: 0
 }

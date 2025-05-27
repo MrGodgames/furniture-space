@@ -13,18 +13,24 @@ import TopCat from './components/topcat.jsx'
 
 const Home = () => (
   <div>
-    <div className='maincontent'>
+    <div  className='header-container'>
+      <App />
+    </div>
+    <div  className='main-container'>
+    <div className='sidebar-container'>
       <Sidebar />
+      </div>
+      <div className='maincontent'>
       <Hero />
       <TopCat />
-    </div>
+      </div>
+      </div>
   </div>
 )
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-      <App />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/cart" element={<Cart />} />
