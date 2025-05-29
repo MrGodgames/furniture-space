@@ -1,4 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 using FurnitureSpace.Infrastructure.Data;
 using FurnitureSpace.Infrastructure.Repositories;
 using FurnitureSpace.Application.Services;
@@ -22,10 +25,43 @@ builder.Services.AddDbContext<FurnitureDbContext>(options =>
 // Add AutoMapper
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 
+// Add HttpClient for image proxy
+builder.Services.AddHttpClient();
+
 // Register repositories and services
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IProductService, ProductService>();
+
+// Register new repositories and services
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IOrderService, OrderService>();
+
+// Add JWT Authentication
+var jwtKey = builder.Configuration["Jwt:Key"] ?? "your-secret-key-here-make-it-long-enough-for-security";
+var jwtIssuer = builder.Configuration["Jwt:Issuer"] ?? "FurnitureSpace";
+var jwtAudience = builder.Configuration["Jwt:Audience"] ?? "FurnitureSpace";
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey)),
+            ValidateIssuer = true,
+            ValidIssuer = jwtIssuer,
+            ValidateAudience = true,
+            ValidAudience = jwtAudience,
+            ValidateLifetime = true,
+            ClockSkew = TimeSpan.Zero
+        };
+    });
 
 // Add CORS
 builder.Services.AddCors(options =>
@@ -49,8 +85,12 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+// Включаем поддержку статических файлов
+app.UseStaticFiles();
+
 app.UseCors("AllowReactApp");
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

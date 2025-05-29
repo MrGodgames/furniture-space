@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import { useCart } from '../context/CartContext';
+import { getImageUrl } from '../services/api';
 import './ProductCard.css';
 
 const ProductCard = ({ product }) => {
   const [imageError, setImageError] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
+  const { addToCart, isInCart, getItemQuantity, updateQuantity, removeFromCart } = useCart();
 
   // Функция для форматирования цены
   const formatPrice = (price) => {
@@ -22,17 +25,9 @@ const ProductCard = ({ product }) => {
 
   // Получаем основное изображение
   const getMainImage = () => {
-    if (product.image) return product.image;
-    if (product.images && product.images.length > 0) return product.images[0];
+    if (product.image) return getImageUrl(product.image);
+    if (product.images && product.images.length > 0) return getImageUrl(product.images[0]);
     return null;
-  };
-
-  const handleImageError = () => {
-    setImageError(true);
-  };
-
-  const handleImageLoad = () => {
-    setImageLoaded(true);
   };
 
   const discountedPrice = getDiscountedPrice(product.price, product.discount);
@@ -44,19 +39,20 @@ const ProductCard = ({ product }) => {
     <div className="product-card">
       <div className="product-image-container">
         {imageUrl && !imageError ? (
-          <img 
-            src={imageUrl} 
+          <img
+            src={imageUrl}
             alt={product.name}
             className="product-image"
-            onError={handleImageError}
-            onLoad={handleImageLoad}
-            style={{ opacity: imageLoaded ? 1 : 0 }}
+            onLoad={() => setImageLoaded(true)}
+            onError={() => setImageError(true)}
           />
         ) : (
-          <div className="product-image product-placeholder">
-            <span>{product.name.charAt(0).toUpperCase()}</span>
+          <div className="product-image-placeholder">
+            <span>FURNITURE</span>
+            <span>SPACE</span>
           </div>
         )}
+        {!imageLoaded && !imageError && <div className="image-loading">Загрузка...</div>}
         {product.isNew && <span className="badge new-badge">Новинка</span>}
         {hasDiscount && <span className="badge discount-badge">-{product.discount}%</span>}
         {product.inStock === false && <span className="badge out-of-stock-badge">Нет в наличии</span>}
@@ -90,12 +86,40 @@ const ProductCard = ({ product }) => {
           </div>
         )}
 
-        <button 
-          className={`product-buy-button ${product.inStock === false ? 'disabled' : ''}`}
-          disabled={product.inStock === false}
-        >
-          {product.inStock !== false ? 'Купить' : 'Нет в наличии'}
-        </button>
+        <div className="product-actions">
+          {isInCart(product.id) ? (
+            <div className="cart-controls">
+              <button 
+                className="quantity-btn"
+                onClick={() => updateQuantity(product.id, getItemQuantity(product.id) - 1)}
+              >
+                -
+              </button>
+              <span className="quantity-display">{getItemQuantity(product.id)}</span>
+              <button 
+                className="quantity-btn"
+                onClick={() => updateQuantity(product.id, getItemQuantity(product.id) + 1)}
+              >
+                +
+              </button>
+              <button 
+                className="remove-btn"
+                onClick={() => removeFromCart(product.id)}
+                title="Удалить из корзины"
+              >
+                🗑️
+              </button>
+            </div>
+          ) : (
+            <button 
+              className={`product-buy-button ${product.inStock === false ? 'disabled' : ''}`}
+              disabled={product.inStock === false}
+              onClick={() => addToCart(product, 1)}
+            >
+              {product.inStock !== false ? 'В корзину' : 'Нет в наличии'}
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

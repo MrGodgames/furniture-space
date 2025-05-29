@@ -8,6 +8,7 @@ import { categoriesAPI, productsAPI } from '../services/api.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAddressBook, faHeart, faPhone, faSearch, faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
 import { NavLink } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext.jsx';
 
 function Catalog() {
   const [categories, setCategories] = useState([]);
@@ -18,6 +19,7 @@ function Catalog() {
   const [error, setError] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [isHovered, setIsHovered] = useState(false);
+  const { isAuthenticated } = useAuth();
 
   // Загрузка данных при монтировании компонента
   useEffect(() => {
@@ -132,9 +134,15 @@ function Catalog() {
                 <NavLink to="/cart" className={({ isActive }) => isActive ? 'nav-button active' : 'nav-button'}>
                   <FontAwesomeIcon icon={faShoppingCart} />
                 </NavLink>
-                <NavLink to="/profile" className={({ isActive }) => isActive ? 'nav-button active' : 'nav-button'}>
-                  <FontAwesomeIcon icon={faUser} />
-                </NavLink>
+                {isAuthenticated ? (
+                  <NavLink to="/profile" className={({ isActive }) => isActive ? 'nav-button active' : 'nav-button'}>
+                    <FontAwesomeIcon icon={faUser} />
+                  </NavLink>
+                ) : (
+                  <NavLink to="/login" className={({ isActive }) => isActive ? 'nav-button active' : 'nav-button'}>
+                    <FontAwesomeIcon icon={faUser} />
+                  </NavLink>
+                )}
               </div>
             </div>
           </header>
@@ -191,9 +199,15 @@ function Catalog() {
               <NavLink to="/cart" className={({ isActive }) => isActive ? 'nav-button active' : 'nav-button'}>
                 <FontAwesomeIcon icon={faShoppingCart} />
               </NavLink>
-              <NavLink to="/profile" className={({ isActive }) => isActive ? 'nav-button active' : 'nav-button'}>
-                <FontAwesomeIcon icon={faUser} />
-              </NavLink>
+              {isAuthenticated ? (
+                <NavLink to="/profile" className={({ isActive }) => isActive ? 'nav-button active' : 'nav-button'}>
+                  <FontAwesomeIcon icon={faUser} />
+                </NavLink>
+              ) : (
+                <NavLink to="/login" className={({ isActive }) => isActive ? 'nav-button active' : 'nav-button'}>
+                  <FontAwesomeIcon icon={faUser} />
+                </NavLink>
+              )}
             </div>
           </div>
         </header>

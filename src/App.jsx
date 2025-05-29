@@ -1,11 +1,17 @@
 import { useState } from 'react'
 import './App.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAddressBook, faHeart, faPhone, faSearch, faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faAddressBook, faHeart, faPhone, faSearch, faShoppingCart, faUser, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { NavLink } from 'react-router-dom';
+import { useAuth } from './context/AuthContext.jsx';
+import { useCart } from './context/CartContext.jsx';
 
 function App() {
   const [isHovered, setIsHovered] = useState(false)
+  const { isAuthenticated } = useAuth();
+  const { getTotalItems } = useCart();
+  const totalItems = getTotalItems();
+  
   return (
     <>
     <header>
@@ -35,11 +41,22 @@ function App() {
             <FontAwesomeIcon icon={faAddressBook} />
           </NavLink>
           <NavLink to="/cart" className={({ isActive }) => isActive ? 'nav-button active' : 'nav-button'}>
-            <FontAwesomeIcon icon={faShoppingCart} />
+            <div className="cart-icon-container">
+              <FontAwesomeIcon icon={faShoppingCart} />
+              {totalItems > 0 && (
+                <span className="cart-badge">{totalItems}</span>
+              )}
+            </div>
           </NavLink>
-          <NavLink to="/profile" className={({ isActive }) => isActive ? 'nav-button active' : 'nav-button'}>
-            <FontAwesomeIcon icon={faUser} />
-          </NavLink>
+          {isAuthenticated ? (
+            <NavLink to="/profile" className={({ isActive }) => isActive ? 'nav-button active' : 'nav-button'}>
+              <FontAwesomeIcon icon={faUser} />
+            </NavLink>
+          ) : (
+            <NavLink to="/login" className={({ isActive }) => isActive ? 'nav-button active' : 'nav-button'}>
+              <FontAwesomeIcon icon={faUser} />
+            </NavLink>
+          )}
         </div>
       </div>
     </header>

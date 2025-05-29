@@ -1,0 +1,283 @@
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    max-width: 1000px;
+    width: 100%;
+    margin: 0;
+    margin-right: auto;
+}
+
+.auth-container {
+    background-color: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(96, 108, 56, 0.15);
+    width: 100%;
+    max-width: 500px;
+}
+
+/* Табы переключения */
+.auth-tabs {
+    display: flex;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #f8f9fa;
+}
+
+.tab-button {
+    flex: 1;
+    padding: 15px 20px;
+    border: none;
+    background-color: transparent;
+    color: #6c757d;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tab-button.active {
+    background-color: #606C38;
+    color: white;
+}
+
+.tab-button:hover:not(.active) {
+    background-color: #e9ecef;
+    color: #606C38;
+}
+
+/* Форма */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon {
+    position: absolute;
+    left: 15px;
+    color: #6c757d;
+    font-size: 16px;
+    z-index: 1;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 15px 45px 15px 45px;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: #f8f9fa;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.input-wrapper input:focus {
+    outline: none;
+    border-color: #606C38;
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(96, 108, 56, 0.1);
+}
+
+.input-wrapper input.error {
+    border-color: #dc3545;
+    background-color: #fff5f5;
+}
+
+.input-wrapper input.error:focus {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+}
+
+.password-toggle {
+    position: absolute;
+    right: 15px;
+    color: #6c757d;
+    font-size: 16px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.password-toggle:hover {
+    color: #606C38;
+}
+
+.error-text {
+    color: #dc3545;
+    font-size: 12px;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+/* Кнопка отправки */
+.submit-button {
+    background-color: #606C38;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.submit-button:hover {
+    background-color: #4a5429;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(96, 108, 56, 0.3);
+}
+
+.submit-button:active {
+    transform: translateY(0);
+}
+
+/* Футер формы */
+.form-footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.form-footer p {
+    color: #6c757d;
+    margin: 0;
+}
+
+.link-button {
+    background: none;
+    border: none;
+    color: #DDA15E;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: underline;
+    margin-left: 5px;
+    transition: color 0.3s ease;
+}
+
+.link-button:hover {
+    color: #c8914d;
+}
+
+/* Анимации */
+.auth-form {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Адаптивность */
+@media screen and (max-width: 768px) {
+    .login-page {
+        padding: 10px;
+    }
+    
+    .auth-container {
+        padding: 30px 20px;
+        margin: 0 10px;
+    }
+    
+    .tab-button {
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+    
+    .input-wrapper input {
+        padding: 12px 40px 12px 40px;
+        font-size: 14px;
+    }
+    
+    .submit-button {
+        padding: 12px 25px;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .auth-container {
+        padding: 25px 15px;
+    }
+    
+    .tab-button {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+    
+    .input-wrapper input {
+        padding: 10px 35px 10px 35px;
+        font-size: 13px;
+    }
+    
+    .input-icon, .password-toggle {
+        font-size: 14px;
+    }
+    
+    .submit-button {
+        padding: 10px 20px;
+        font-size: 13px;
+    }
+}
+
+/* Дополнительные стили для улучшения UX */
+.input-wrapper input::placeholder {
+    color: #adb5bd;
+}
+
+.form-group label {
+    transition: color 0.3s ease;
+}
+
+.input-wrapper:focus-within label {
+    color: #606C38;
+}
+
+/* Стили для успешной валидации */
+.input-wrapper input:valid:not(:placeholder-shown) {
+    border-color: #28a745;
+}
+
+.input-wrapper input:valid:not(:placeholder-shown):focus {
+    box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.1);
+}
+
+/* Общие ошибки */
+.general-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #f5c6cb;
+    text-align: center;
+    font-weight: 600;
+} 
