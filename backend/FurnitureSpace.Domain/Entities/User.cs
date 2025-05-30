@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FurnitureSpace.Domain.Entities
 {
@@ -11,7 +12,6 @@ namespace FurnitureSpace.Domain.Entities
         public string Name { get; set; } = string.Empty;
         
         [Required]
-        [EmailAddress]
         [MaxLength(255)]
         public string Email { get; set; } = string.Empty;
         
@@ -25,13 +25,16 @@ namespace FurnitureSpace.Domain.Entities
         public string PasswordHash { get; set; } = string.Empty;
         
         [MaxLength(500)]
-        public string Avatar { get; set; } = "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y&s=150";
+        public string? Avatar { get; set; }
         
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime? CreatedAt { get; set; }
         
-        public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime? UpdatedAt { get; set; }
         
-        public bool IsActive { get; set; } = true;
+        public bool? IsActive { get; set; } = true;
+        
+        [MaxLength(50)]
+        public string Role { get; set; } = "user"; // admin, user
         
         // Навигационные свойства
         public virtual ICollection<Order> Orders { get; set; } = new List<Order>();

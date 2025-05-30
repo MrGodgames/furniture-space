@@ -1,0 +1,156 @@
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.admin-sidebar {
+  width: 280px;
+  background: linear-gradient(180deg, #2c3e50 0%, #34495e 100%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.admin-logo {
+  padding: 30px 25px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.admin-logo h2 {
+  margin: 0 0 10px 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: #ecf0f1;
+}
+
+.admin-logo p {
+  margin: 0;
+  font-size: 14px;
+  color: #bdc3c7;
+}
+
+.admin-nav {
+  flex: 1;
+  padding: 20px 0;
+}
+
+.admin-nav-link {
+  display: block;
+  padding: 15px 25px;
+  color: #ecf0f1;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border-left: 4px solid transparent;
+}
+
+.admin-nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-left-color: #3498db;
+}
+
+.admin-nav-link.active {
+  background-color: rgba(52, 152, 219, 0.2);
+  border-left-color: #3498db;
+  color: #3498db;
+}
+
+.admin-footer {
+  padding: 20px 25px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.admin-btn {
+  padding: 12px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.admin-btn.secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.admin-btn.secondary:hover {
+  background-color: #5a6268;
+}
+
+.admin-btn.danger {
+  background-color: #dc3545;
+  color: white;
+}
+
+.admin-btn.danger:hover {
+  background-color: #c82333;
+}
+
+.admin-content {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+}
+
+.admin-access-denied {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #f8f9fa;
+}
+
+.admin-access-denied h1 {
+  color: #dc3545;
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.admin-access-denied p {
+  color: #6c757d;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.admin-access-denied button {
+  padding: 12px 24px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.admin-access-denied button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .admin-layout {
+    flex-direction: column;
+  }
+  
+  .admin-sidebar {
+    width: 100%;
+    height: auto;
+  }
+  
+  .admin-content {
+    padding: 20px;
+  }
+} 

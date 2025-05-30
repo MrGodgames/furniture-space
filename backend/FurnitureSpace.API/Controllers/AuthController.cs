@@ -52,9 +52,9 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost("validate-token")]
-    public async Task<ActionResult<bool>> ValidateToken([FromBody] string token)
+    public ActionResult<bool> ValidateToken([FromBody] string token)
     {
-        var isValid = await _authService.ValidateTokenAsync(token);
+        var isValid = _authService.ValidateToken(token);
         return Ok(isValid);
     }
 } 

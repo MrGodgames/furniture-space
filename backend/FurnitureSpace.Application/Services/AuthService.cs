@@ -49,7 +49,7 @@ public class AuthService : IAuthService
                 };
             }
 
-            if (!user.IsActive)
+            if (user.IsActive != true)
             {
                 return new AuthResponseDto
                 {
@@ -69,7 +69,7 @@ public class AuthService : IAuthService
                 User = userDto
             };
         }
-        catch (Exception ex)
+        catch (Exception)
         {
             return new AuthResponseDto
             {
@@ -110,7 +110,7 @@ public class AuthService : IAuthService
                 User = userDto
             };
         }
-        catch (Exception ex)
+        catch (Exception)
         {
             return new AuthResponseDto
             {
@@ -120,7 +120,7 @@ public class AuthService : IAuthService
         }
     }
 
-    public async Task<bool> ValidateTokenAsync(string token)
+    public bool ValidateToken(string token)
     {
         try
         {

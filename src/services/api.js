@@ -119,6 +119,9 @@ export const authAPI = {
   // Получение профиля пользователя
   getProfile: () => apiRequest('/users/profile'),
 
+  // Получение адреса пользователя
+  getUserAddress: () => apiRequest('/users/address'),
+
   // Обновление профиля пользователя
   updateProfile: (profileData) => apiRequest('/users/profile', {
     method: 'PUT',
@@ -198,4 +201,16 @@ export const ordersAPI = {
   }),
 };
 
-export default { authAPI, categoriesAPI, productsAPI, ordersAPI }; 
+// Admin API
+export const adminAPI = {
+  getDashboard: () => apiRequest('/admin/dashboard'),
+  getProductSales: () => apiRequest('/admin/products/sales'),
+  getAllOrders: () => apiRequest('/admin/orders'),
+  updateOrderStatus: (orderId, status) => 
+    apiRequest(`/admin/orders/${orderId}/status`, {
+      method: 'PUT',
+      body: JSON.stringify({ status }),
+    })
+};
+
+export default { authAPI, categoriesAPI, productsAPI, ordersAPI, adminAPI }; 

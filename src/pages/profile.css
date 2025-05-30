@@ -533,3 +533,62 @@
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
 }
+
+/* Success Message */
+.success-message {
+    background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+    color: #155724;
+    border: 2px solid #c3e6cb;
+    border-radius: 15px;
+    padding: 1rem 1.5rem;
+    margin: 1rem 0 2rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(21, 87, 36, 0.15);
+    animation: slideIn 0.5s ease-out;
+}
+
+.success-message svg {
+    color: #28a745;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.success-message span {
+    flex: 1;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.close-message {
+    background: none;
+    border: none;
+    color: #155724;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+
+.close-message:hover {
+    background-color: rgba(21, 87, 36, 0.1);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

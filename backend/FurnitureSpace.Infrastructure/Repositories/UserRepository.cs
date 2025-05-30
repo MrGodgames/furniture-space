@@ -18,21 +18,21 @@ public class UserRepository : IUserRepository
     {
         return await _context.Users
             .Include(u => u.Orders)
-            .FirstOrDefaultAsync(u => u.Id == id && u.IsActive);
+            .FirstOrDefaultAsync(u => u.Id == id && u.IsActive == true);
     }
 
     public async Task<User?> GetByEmailAsync(string email)
     {
         return await _context.Users
             .Include(u => u.Orders)
-            .FirstOrDefaultAsync(u => u.Email == email && u.IsActive);
+            .FirstOrDefaultAsync(u => u.Email == email && u.IsActive == true);
     }
 
     public async Task<IEnumerable<User>> GetAllAsync()
     {
         return await _context.Users
             .Include(u => u.Orders)
-            .Where(u => u.IsActive)
+            .Where(u => u.IsActive == true)
             .ToListAsync();
     }
 

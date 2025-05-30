@@ -11,6 +11,7 @@ namespace FurnitureSpace.Application.DTOs
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
         public bool IsActive { get; set; }
+        public string Role { get; set; } = "user";
         
         // Дополнительная информация
         public int TotalOrders { get; set; }

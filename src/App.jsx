@@ -8,7 +8,7 @@ import { useCart } from './context/CartContext.jsx';
 
 function App() {
   const [isHovered, setIsHovered] = useState(false)
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, user, logout } = useAuth();
   const { getTotalItems } = useCart();
   const totalItems = getTotalItems();
   
@@ -49,9 +49,20 @@ function App() {
             </div>
           </NavLink>
           {isAuthenticated ? (
-            <NavLink to="/profile" className={({ isActive }) => isActive ? 'nav-button active' : 'nav-button'}>
-              <FontAwesomeIcon icon={faUser} />
-            </NavLink>
+            <div className="user-menu">
+              <NavLink to="/profile" className="nav-link user-profile">
+                <FontAwesomeIcon icon={faUser} />
+                {user?.name}
+              </NavLink>
+              {user?.role === 'admin' && (
+                <NavLink to="/admin" className="nav-link admin-panel">
+                  ⚙️ Админ панель
+                </NavLink>
+              )}
+              <button onClick={logout} className="logout-btn">
+                Выйти
+              </button>
+            </div>
           ) : (
             <NavLink to="/login" className={({ isActive }) => isActive ? 'nav-button active' : 'nav-button'}>
               <FontAwesomeIcon icon={faUser} />

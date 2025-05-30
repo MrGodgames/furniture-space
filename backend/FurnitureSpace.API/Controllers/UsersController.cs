@@ -36,6 +36,24 @@ public class UsersController : ControllerBase
         return Ok(user);
     }
 
+    [HttpGet("address")]
+    public async Task<ActionResult<object>> GetUserAddress()
+    {
+        var userIdClaim = User.FindFirst("UserId")?.Value;
+        if (string.IsNullOrEmpty(userIdClaim) || !int.TryParse(userIdClaim, out int userId))
+        {
+            return Unauthorized("Недействительный токен");
+        }
+
+        var user = await _userService.GetUserByIdAsync(userId);
+        if (user == null)
+        {
+            return NotFound("Пользователь не найден");
+        }
+
+        return Ok(new { address = user.Address ?? "" });
+    }
+
     [HttpPut("profile")]
     public async Task<ActionResult<UserDto>> UpdateProfile([FromBody] UserDto userDto)
     {

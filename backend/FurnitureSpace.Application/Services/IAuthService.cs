@@ -6,7 +6,7 @@ namespace FurnitureSpace.Application.Services
     {
         Task<AuthResponseDto> LoginAsync(LoginRequestDto request);
         Task<AuthResponseDto> RegisterAsync(RegisterRequestDto request);
-        Task<bool> ValidateTokenAsync(string token);
+        bool ValidateToken(string token);
         string GenerateJwtToken(int userId, string email);
         string HashPassword(string password);
         bool VerifyPassword(string password, string hash);

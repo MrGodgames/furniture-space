@@ -4,14 +4,18 @@ import './profile.css';
 import App from '../App.jsx';
 import Sidebar from '../sidebar.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faEdit, faShoppingBag, faCalendarAlt, faMapMarkerAlt, faEnvelope, faPhone, faStar, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faEdit, faShoppingBag, faCalendarAlt, faMapMarkerAlt, faEnvelope, faPhone, faStar, faSignOutAlt, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { useAuth } from '../context/AuthContext.jsx';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { authAPI } from '../services/api.js';
 
 function Profile() {
     const { user, isAuthenticated, logout, updateUser } = useAuth();
     const navigate = useNavigate();
+    const location = useLocation();
+
+    // Состояние для сообщения об успехе
+    const [successMessage, setSuccessMessage] = useState('');
 
     // Перенаправляем на страницу входа если пользователь не авторизован
     useEffect(() => {
@@ -19,6 +23,17 @@ function Profile() {
             navigate('/login');
         }
     }, [isAuthenticated, navigate]);
+
+    // Проверяем наличие сообщения об успешном заказе
+    useEffect(() => {
+        if (location.state?.message) {
+            setSuccessMessage(location.state.message);
+            // Убираем сообщение из истории браузера
+            navigate(location.pathname, { replace: true });
+            // Автоматически скрываем сообщение через 10 секунд
+            setTimeout(() => setSuccessMessage(''), 10000);
+        }
+    }, [location, navigate]);
 
     // Состояние для заказов
     const [orders, setOrders] = useState([]);
@@ -120,6 +135,21 @@ function Profile() {
                             Выйти
                         </button>
                     </div>
+                    
+                    {/* Сообщение об успешном заказе */}
+                    {successMessage && (
+                        <div className="success-message">
+                            <FontAwesomeIcon icon={faCheckCircle} />
+                            <span>{successMessage}</span>
+                            <button 
+                                className="close-message"
+                                onClick={() => setSuccessMessage('')}
+                                aria-label="Закрыть сообщение"
+                            >
+                                ✕
+                            </button>
+                        </div>
+                    )}
                     
                     <div className="profile-page">
                         {/* Информация о пользователе */}

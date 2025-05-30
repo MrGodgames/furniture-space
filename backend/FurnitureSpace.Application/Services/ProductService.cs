@@ -75,6 +75,14 @@ public class ProductService : IProductService
         {
             product.Colors = JsonSerializer.Serialize(createProductDto.Colors);
         }
+        else
+        {
+            product.Colors = null;
+        }
+        
+        // Set timestamps to UTC
+        product.CreatedAt = DateTime.UtcNow;
+        product.UpdatedAt = DateTime.UtcNow;
         
         var createdProduct = await _unitOfWork.Products.AddAsync(product);
         await _unitOfWork.SaveChangesAsync();
@@ -94,6 +102,17 @@ public class ProductService : IProductService
         {
             existingProduct.Colors = JsonSerializer.Serialize(updateProductDto.Colors);
         }
+        else
+        {
+            existingProduct.Colors = null;
+        }
+        
+        // Ensure all DateTime fields are UTC
+        if (existingProduct.CreatedAt.HasValue && existingProduct.CreatedAt.Value.Kind == DateTimeKind.Unspecified)
+        {
+            existingProduct.CreatedAt = DateTime.SpecifyKind(existingProduct.CreatedAt.Value, DateTimeKind.Utc);
+        }
+        existingProduct.UpdatedAt = DateTime.UtcNow;
         
         await _unitOfWork.Products.UpdateAsync(existingProduct);
         await _unitOfWork.SaveChangesAsync();

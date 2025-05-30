@@ -1,7 +1,8 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
-import { ordersAPI, getImageUrl } from '../services/api';
+import { getImageUrl } from '../services/api';
 import './cart.css';
 import '../App.css';
 import Sidebar from '../sidebar.jsx';
@@ -10,6 +11,7 @@ import App from '../App.jsx';
 function Cart() {
   const { items, updateQuantity, removeFromCart, getTotalPrice, clearCart } = useCart();
   const { isAuthenticated } = useAuth();
+  const navigate = useNavigate();
 
   const formatPrice = (price) => {
     return new Intl.NumberFormat('ru-RU', {
@@ -19,9 +21,10 @@ function Cart() {
     }).format(price);
   };
 
-  const handleCheckout = async () => {
+  const handleCheckout = () => {
     if (!isAuthenticated) {
       alert('Для оформления заказа необходимо войти в систему');
+      navigate('/login');
       return;
     }
 
@@ -30,24 +33,8 @@ function Cart() {
       return;
     }
 
-    try {
-      const orderData = {
-        shippingAddress: "Будет запрошен при оформлении",
-        paymentMethod: "Наличные",
-        notes: "",
-        items: items.map(item => ({
-          productId: item.id,
-          quantity: item.quantity
-        }))
-      };
-
-      await ordersAPI.create(orderData);
-      clearCart();
-      alert('Заказ успешно оформлен!');
-    } catch (error) {
-      console.error('Ошибка при создании заказа:', error);
-      alert('Ошибка при оформлении заказа. Попробуйте позже.');
-    }
+    // Перенаправляем на страницу оформления заказа
+    navigate('/checkout');
   };
 
   return (

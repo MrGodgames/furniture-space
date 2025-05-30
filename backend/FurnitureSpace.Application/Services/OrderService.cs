@@ -9,25 +9,41 @@ public class OrderService : IOrderService
 {
     private readonly IOrderRepository _orderRepository;
     private readonly IProductRepository _productRepository;
+    private readonly IUserRepository _userRepository;
     private readonly IMapper _mapper;
 
-    public OrderService(IOrderRepository orderRepository, IProductRepository productRepository, IMapper mapper)
+    public OrderService(IOrderRepository orderRepository, IProductRepository productRepository, IUserRepository userRepository, IMapper mapper)
     {
         _orderRepository = orderRepository;
         _productRepository = productRepository;
+        _userRepository = userRepository;
         _mapper = mapper;
     }
 
     public async Task<OrderDto> CreateOrderAsync(int userId, CreateOrderDto createOrderDto)
     {
+        // Получаем пользователя для автозаполнения адреса
+        var user = await _userRepository.GetByIdAsync(userId);
+        if (user == null)
+        {
+            throw new ArgumentException("Пользователь не найден");
+        }
+
+        // Если адрес доставки не указан или пустой, используем адрес из профиля пользователя
+        string shippingAddress = createOrderDto.ShippingAddress;
+        if (string.IsNullOrWhiteSpace(shippingAddress) && !string.IsNullOrWhiteSpace(user.Address))
+        {
+            shippingAddress = user.Address;
+        }
+
         // Создаем заказ
         var order = new Order
         {
             UserId = userId,
-            ShippingAddress = createOrderDto.ShippingAddress,
+            ShippingAddress = shippingAddress,
             PaymentMethod = createOrderDto.PaymentMethod,
-            PaymentStatus = "Pending",
-            Status = "Pending",
+            PaymentStatus = "pending",
+            Status = "pending",
             Notes = createOrderDto.Notes,
             CreatedAt = DateTime.UtcNow,
             UpdatedAt = DateTime.UtcNow
@@ -132,13 +148,13 @@ public class OrderService : IOrderService
             return false;
         }
 
-        // Можно отменить только заказы в статусе "Pending" или "Processing"
-        if (order.Status != "Pending" && order.Status != "Processing")
+        // Можно отменить только заказы в статусе "pending" или "processing"
+        if (order.Status != "pending" && order.Status != "processing")
         {
             throw new ArgumentException("Заказ не может быть отменен в текущем статусе");
         }
 
-        order.Status = "Cancelled";
+        order.Status = "cancelled";
         order.UpdatedAt = DateTime.UtcNow;
 
         await _orderRepository.UpdateAsync(order);

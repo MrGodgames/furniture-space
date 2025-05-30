@@ -14,10 +14,14 @@ public class UnitOfWork : IUnitOfWork
         _context = context;
         Categories = new CategoryRepository(_context);
         Products = new ProductRepository(_context);
+        Users = new UserRepository(_context);
+        Orders = new OrderRepository(_context);
     }
 
     public ICategoryRepository Categories { get; }
     public IProductRepository Products { get; }
+    public IUserRepository Users { get; }
+    public IOrderRepository Orders { get; }
 
     public async Task<int> SaveChangesAsync()
     {

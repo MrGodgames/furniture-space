@@ -31,7 +31,8 @@ public class ProductRepository : Repository<Product>, IProductRepository
     {
         return await _dbSet
             .Include(p => p.CategoryNavigation)
-            .Where(p => p.IsNew == true)
+            .OrderByDescending(p => p.CreatedAt)
+            .Take(6)
             .ToListAsync();
     }
 

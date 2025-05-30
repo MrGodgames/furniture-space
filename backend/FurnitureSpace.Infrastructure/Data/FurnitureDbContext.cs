@@ -56,7 +56,7 @@ public class FurnitureDbContext : DbContext
             entity.Property(e => e.UpdatedAt).HasColumnName("updated_at");
             entity.Property(e => e.IsFeatured).HasColumnName("is_featured");
             entity.Property(e => e.Images).HasColumnName("images");
-            entity.Property(e => e.Colors).HasColumnName("colors");
+            entity.Property(e => e.Colors).HasColumnName("colors").HasColumnType("jsonb");
         });
 
         // Configure User entity
@@ -74,6 +74,7 @@ public class FurnitureDbContext : DbContext
             entity.Property(e => e.CreatedAt).HasColumnName("created_at");
             entity.Property(e => e.UpdatedAt).HasColumnName("updated_at");
             entity.Property(e => e.IsActive).HasColumnName("is_active");
+            entity.Property(e => e.Role).HasColumnName("role").HasMaxLength(50).HasDefaultValue("user");
 
             entity.HasIndex(e => e.Email).IsUnique();
 
