@@ -39,8 +39,8 @@ const ProductCard = ({ product }) => {
     <div className="product-card">
       <div className="product-image-container">
         {imageUrl && !imageError ? (
-          <img
-            src={imageUrl}
+          <img 
+            src={imageUrl} 
             alt={product.name}
             className="product-image"
             onLoad={() => setImageLoaded(true)}
@@ -111,13 +111,13 @@ const ProductCard = ({ product }) => {
               </button>
             </div>
           ) : (
-            <button 
-              className={`product-buy-button ${product.inStock === false ? 'disabled' : ''}`}
-              disabled={product.inStock === false}
+        <button 
+          className={`product-buy-button ${product.inStock === false ? 'disabled' : ''}`}
+          disabled={product.inStock === false}
               onClick={() => addToCart(product, 1)}
-            >
+        >
               {product.inStock !== false ? 'В корзину' : 'Нет в наличии'}
-            </button>
+        </button>
           )}
         </div>
       </div>

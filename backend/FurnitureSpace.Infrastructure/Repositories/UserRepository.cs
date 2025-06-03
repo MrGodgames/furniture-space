@@ -46,6 +46,12 @@ public class UserRepository : IUserRepository
     public async Task<User> UpdateAsync(User user)
     {
         user.UpdatedAt = DateTime.UtcNow;
+        
+        if (user.CreatedAt.HasValue && user.CreatedAt.Value.Kind == DateTimeKind.Unspecified)
+        {
+            user.CreatedAt = DateTime.SpecifyKind(user.CreatedAt.Value, DateTimeKind.Utc);
+        }
+        
         _context.Users.Update(user);
         await _context.SaveChangesAsync();
         return user;
@@ -73,6 +79,12 @@ public class UserRepository : IUserRepository
 
         user.IsActive = false;
         user.UpdatedAt = DateTime.UtcNow;
+        
+        if (user.CreatedAt.HasValue && user.CreatedAt.Value.Kind == DateTimeKind.Unspecified)
+        {
+            user.CreatedAt = DateTime.SpecifyKind(user.CreatedAt.Value, DateTimeKind.Utc);
+        }
+        
         await _context.SaveChangesAsync();
         return true;
     }

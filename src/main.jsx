@@ -12,6 +12,8 @@ import About from './pages/about.jsx'
 import Profile from './pages/profile.jsx'
 import Login from './pages/login.jsx'
 import Catalog from './pages/catalog.jsx'
+import SearchPage from './pages/SearchPage.jsx'
+import ProductPage from './pages/ProductPage.jsx'
 import Filter from './components/filter.jsx'
 import TopCat from './components/topcat.jsx'
 import NewProduct from './components/newproduct.jsx'
@@ -47,6 +49,8 @@ createRoot(document.getElementById('root')).render(
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/search" element={<SearchPage />} />
+            <Route path="/product/:productId" element={<ProductPage />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/about" element={<About />} />

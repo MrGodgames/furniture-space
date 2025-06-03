@@ -29,6 +29,16 @@ public class OrderRepository : IOrderRepository
             .ToListAsync();
     }
 
+    public async Task<IEnumerable<Order>> GetAllWithItemsAsync()
+    {
+        return await _context.Orders
+            .Include(o => o.User)
+            .Include(o => o.OrderItems)
+                .ThenInclude(oi => oi.Product)
+            .OrderByDescending(o => o.CreatedAt)
+            .ToListAsync();
+    }
+
     public async Task<IEnumerable<Order>> GetByUserIdAsync(int userId)
     {
         return await _context.Orders
@@ -46,10 +56,26 @@ public class OrderRepository : IOrderRepository
 
     public async Task<Order> UpdateAsync(Order order)
     {
-        order.UpdatedAt = DateTime.UtcNow;
-        _context.Orders.Update(order);
+        // Получаем существующую запись из контекста
+        var existingOrder = await _context.Orders.FindAsync(order.Id);
+        if (existingOrder == null)
+        {
+            throw new ArgumentException("Заказ не найден");
+        }
+
+        // Обновляем только нужные поля, НЕ ТРОГАЯ CreatedAt
+        existingOrder.Status = order.Status;
+        existingOrder.ShippingAddress = order.ShippingAddress;
+        existingOrder.PaymentMethod = order.PaymentMethod;
+        existingOrder.PaymentStatus = order.PaymentStatus;
+        existingOrder.Notes = order.Notes;
+        existingOrder.TotalAmount = order.TotalAmount;
+        existingOrder.UpdatedAt = DateTime.UtcNow;
+        
+        // CreatedAt остается неизменным!
+        
         await _context.SaveChangesAsync();
-        return order;
+        return existingOrder;
     }
 
     public async Task<bool> DeleteAsync(int id)

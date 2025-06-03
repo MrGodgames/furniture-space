@@ -48,7 +48,10 @@ public class MappingProfile : Profile
         // Order mappings
         CreateMap<Order, OrderDto>()
             .ForMember(dest => dest.Date, opt => opt.MapFrom(src => src.CreatedAt))
-            .ForMember(dest => dest.Items, opt => opt.MapFrom(src => src.OrderItems));
+            .ForMember(dest => dest.Items, opt => opt.MapFrom(src => src.OrderItems))
+            .ForMember(dest => dest.CustomerName, opt => opt.MapFrom(src => src.User.Name))
+            .ForMember(dest => dest.CustomerEmail, opt => opt.MapFrom(src => src.User.Email))
+            .ForMember(dest => dest.CustomerPhone, opt => opt.MapFrom(src => src.User.Phone));
         CreateMap<OrderDto, Order>()
             .ForMember(dest => dest.User, opt => opt.Ignore())
             .ForMember(dest => dest.OrderItems, opt => opt.Ignore());

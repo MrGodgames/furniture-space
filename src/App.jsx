@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import './App.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAddressBook, faHeart, faPhone, faSearch, faShoppingCart, faUser, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { faAddressBook, faHeart, faPhone, faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
 import { NavLink } from 'react-router-dom';
 import { useAuth } from './context/AuthContext.jsx';
 import { useCart } from './context/CartContext.jsx';
+import SearchBox from './components/SearchBox.jsx';
 
 function App() {
   const [isHovered, setIsHovered] = useState(false)
@@ -20,14 +21,7 @@ function App() {
           <img src="./src/assets/images/logo.png" alt="logo" />
         </div>
         <div className='search'>
-          <input type="text" placeholder='Поиск...' className='search-input' />
-
-          <button className={`sr-button ${isHovered ? 'hover' : ''}`}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-          >
-            <FontAwesomeIcon icon={faSearch} color='white'/>
-          </button>
+          <SearchBox isHovered={isHovered} setIsHovered={setIsHovered} />
         </div>
         <div className='phonenumber'>
           <FontAwesomeIcon icon={faPhone} className='phonenumberico'/>

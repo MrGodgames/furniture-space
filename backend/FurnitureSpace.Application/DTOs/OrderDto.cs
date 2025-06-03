@@ -16,5 +16,10 @@ namespace FurnitureSpace.Application.DTOs
         // Дополнительная информация
         public DateTime Date { get; set; }
         public List<OrderItemDto> Items { get; set; } = new List<OrderItemDto>();
+        
+        // Информация о клиенте
+        public string? CustomerName { get; set; }
+        public string? CustomerEmail { get; set; }
+        public string? CustomerPhone { get; set; }
     }
 } 
