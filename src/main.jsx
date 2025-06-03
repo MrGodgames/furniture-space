@@ -23,6 +23,7 @@ import AdminDashboard from './pages/admin/AdminDashboard.jsx'
 import AdminProducts from './pages/admin/AdminProducts.jsx'
 import AdminOrders from './pages/admin/AdminOrders.jsx'
 import AdminStatistics from './pages/admin/AdminStatistics.jsx'
+import Footer from './components/Footer.jsx'
 
 const Home = () => (
   <div>
@@ -38,6 +39,9 @@ const Home = () => (
       <TopCat />
       <NewProduct />
       </div>
+      </div>
+      <div className='footer-container'>
+        <Footer />
       </div>
   </div>
 )

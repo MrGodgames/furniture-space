@@ -219,7 +219,10 @@ body {
     z-index: 1000;
     top: 0;
 }
-
+.footer-container {
+    background-color: #606C38;
+    z-index: 1000;
+}
 /* Медиа-запросы для адаптивности */
 @media screen and (max-width: 1400px) {
     .header {
