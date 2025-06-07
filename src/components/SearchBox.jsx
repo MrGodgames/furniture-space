@@ -88,7 +88,7 @@ const SearchBox = ({ isHovered, setIsHovered }) => {
     if (type === 'product') {
       navigate(`/product/${item.id}`);
     } else if (type === 'category') {
-      navigate(`/search?category=${item.id}`);
+      navigate(`/catalog?category=${item.id}`);
     }
     setShowResults(false);
     setSearchTerm('');

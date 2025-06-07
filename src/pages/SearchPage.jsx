@@ -10,7 +10,7 @@ const SearchPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const { addToCart, getCartItemQuantity, updateQuantity, removeFromCart } = useCart();
+  const { addToCart, getItemQuantity, updateQuantity, removeFromCart } = useCart();
   const navigate = useNavigate();
   
   const searchTerm = searchParams.get('q') || '';
@@ -221,7 +221,7 @@ const SearchPage = () => {
                 </h2>
                 <div className="products-grid">
                   {searchResults.products.map((product) => {
-                    const cartQuantity = getCartItemQuantity(product.id);
+                    const cartQuantity = getItemQuantity(product.id);
                     
                     return (
                       <div key={product.id} className="product-card">

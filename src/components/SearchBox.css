@@ -173,7 +173,7 @@
 }
 
 .item-type-badge {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #606C38 0%, #CB997E 100%);
   color: white;
   padding: 4px 8px;
   border-radius: 12px;
@@ -220,7 +220,7 @@
 
 .product-price {
   font-weight: 700;
-  color: #28a745;
+  color: #DDA15E;
   font-size: 13px;
 }
 
@@ -234,18 +234,19 @@
 .view-all-button {
   width: 100%;
   padding: 8px 16px;
-  background: #007bff;
+  background: #DDA15E;
   color: white;
   border: none;
   border-radius: 8px;
   font-size: 13px;
   font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .view-all-button:hover {
-  background: #0056b3;
+  background: #BC6C25;
+  transform: translateY(-2px);
 }
 
 /* Сообщение об отсутствии результатов */

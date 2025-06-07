@@ -4,7 +4,7 @@
 }
 
 .cart-page h1 {
-    color: rgb(101, 100, 100);
+    color: #606C38;
     margin-bottom: 20px;
 }
 
@@ -114,11 +114,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .quantity-btn:hover {
-    background-color: #c8914d;
+    background-color: #BC6C25;
+    transform: scale(1.1);
 }
 
 .quantity-display {
@@ -187,15 +188,16 @@
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .clear-cart-btn:hover {
-    background-color: #545b62;
+    background-color: #5a6268;
+    transform: translateY(-2px);
 }
 
 .checkout-btn {
-    background-color: #28a745;
+    background-color: #DDA15E;
     color: white;
     border: none;
     border-radius: 10px;
@@ -203,11 +205,13 @@
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .checkout-btn:hover {
-    background-color: #1e7e34;
+    background-color: #BC6C25;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(221, 161, 94, 0.3);
 }
 
 /* Адаптивность */

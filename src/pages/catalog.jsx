@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 import './catalog.css';
 import '../App.css';
 import App from '../App.jsx';
@@ -15,6 +15,7 @@ import { useAuth } from '../context/AuthContext.jsx';
 
 function Catalog() {
   const { categorySlug } = useParams();
+  const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   
   const [categories, setCategories] = useState([]);
@@ -28,6 +29,9 @@ function Catalog() {
   const [isHovered, setIsHovered] = useState(false);
   const { isAuthenticated } = useAuth();
 
+  // Получаем categoryId из параметров URL
+  const categoryId = searchParams.get('category');
+
   // Загрузка данных при монтировании компонента
   useEffect(() => {
     loadInitialData();
@@ -35,7 +39,13 @@ function Catalog() {
 
   // Обработка изменения категории из URL
   useEffect(() => {
-    if (categorySlug && categories.length > 0) {
+    if (categoryId && categories.length > 0) {
+      // Поиск категории по ID
+      const category = categories.find(cat => cat.id.toString() === categoryId);
+      if (category) {
+        loadCategoryProducts(category);
+      }
+    } else if (categorySlug && categories.length > 0) {
       const category = categories.find(cat => 
         (cat.slug && cat.slug === categorySlug) || 
         cat.name.toLowerCase() === categorySlug
@@ -43,11 +53,11 @@ function Catalog() {
       if (category) {
         loadCategoryProducts(category);
       }
-    } else if (!categorySlug) {
+    } else if (!categorySlug && !categoryId) {
       setSelectedCategory(null);
       loadAllProducts();
     }
-  }, [categorySlug, categories]);
+  }, [categorySlug, categoryId, categories]);
 
   const loadInitialData = async () => {
     try {
@@ -106,7 +116,7 @@ function Catalog() {
   const handleCategorySelect = (category) => {
     if (category) {
       setSelectedCategory(category);
-      navigate(`/catalog/${category.slug || category.name.toLowerCase()}`);
+      navigate(`/catalog?category=${category.id}`);
     } else {
       setSelectedCategory(null);
       navigate('/catalog');
@@ -177,6 +187,7 @@ function Catalog() {
           <CategorySelector 
             categories={categories}
             onCategorySelect={handleCategorySelect}
+            selectedCategory={selectedCategory}
           />
 
           {/* Новинки (показываем только если не выбрана категория) */}

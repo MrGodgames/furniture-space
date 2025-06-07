@@ -9,7 +9,7 @@
 
 .orders-header h1 {
   font-size: 32px;
-  color: #2c3e50;
+  color: #606C38;
   margin: 0 0 10px 0;
 }
 
@@ -35,7 +35,7 @@
 
 .filter-box select:focus {
   outline: none;
-  border-color: #007bff;
+  border-color: #606C38;
 }
 
 .orders-loading,
@@ -69,10 +69,10 @@
   grid-template-columns: 100px 250px 150px 120px 120px 120px;
   gap: 20px;
   padding: 20px 25px;
-  background: #f8f9fa;
-  border-bottom: 2px solid #e9ecef;
+  background: #f5efcd;
+  border-bottom: 2px solid #CB997E;
   font-weight: 600;
-  color: #2c3e50;
+  color: #606C38;
   font-size: 14px;
 }
 
@@ -102,7 +102,7 @@
 
 .col-order .order-number {
   font-weight: 600;
-  color: #007bff;
+  color: #DDA15E;
   font-size: 16px;
 }
 
@@ -114,7 +114,7 @@
 
 .customer-name {
   font-weight: 600;
-  color: #2c3e50;
+  color: #606C38;
   font-size: 14px;
 }
 
@@ -141,24 +141,25 @@
 
 .col-amount {
   font-weight: 700;
-  color: #28a745;
+  color: #DDA15E;
   font-size: 16px;
 }
 
 .view-btn {
   padding: 8px 16px;
-  background: #007bff;
+  background: #DDA15E;
   color: white;
   border: none;
   border-radius: 6px;
   font-size: 12px;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .view-btn:hover {
-  background: #0056b3;
+  background: #BC6C25;
+  transform: translateY(-2px);
 }
 
 .no-orders {
@@ -205,7 +206,7 @@
 
 .modal-header h2 {
   margin: 0;
-  color: #2c3e50;
+  color: #606C38;
   font-size: 24px;
 }
 
@@ -266,8 +267,9 @@
 }
 
 .summary-item .value.amount {
-  color: #28a745;
-  font-size: 20px;
+  color: #DDA15E;
+  font-weight: 700;
+  font-size: 18px;
 }
 
 /* Секции */
@@ -277,10 +279,10 @@
 
 .section h3 {
   margin: 0 0 15px 0;
-  color: #2c3e50;
+  color: #606C38;
   font-size: 18px;
   font-weight: 600;
-  border-bottom: 2px solid #007bff;
+  border-bottom: 2px solid #CB997E;
   padding-bottom: 8px;
 }
 
@@ -336,8 +338,8 @@
 
 .item-name {
   font-weight: 600;
-  color: #2c3e50;
-  font-size: 14px;
+  color: #606C38;
+  margin: 0 0 5px 0;
 }
 
 .item-details {
@@ -346,8 +348,8 @@
 }
 
 .item-total {
-  font-weight: 700;
-  color: #28a745;
+  color: #DDA15E;
+  font-weight: 600;
   font-size: 16px;
 }
 
@@ -361,23 +363,22 @@
 
 .status-control label {
   font-weight: 600;
-  color: #2c3e50;
-  font-size: 14px;
+  color: #606C38;
 }
 
 .status-select {
-  padding: 12px 16px;
-  border: 2px solid #e9ecef;
-  border-radius: 8px;
+  padding: 8px 12px;
+  border: 2px solid #CB997E;
+  border-radius: 6px;
   font-size: 14px;
-  font-weight: 500;
+  background-color: white;
   cursor: pointer;
   transition: border-color 0.3s ease;
 }
 
 .status-select:focus {
   outline: none;
-  border-color: #007bff;
+  border-color: #606C38;
 }
 
 /* Responsive */

@@ -45,7 +45,7 @@ function Sidebar() {
   };
 
   const handleCategoryClick = (categoryId) => {
-    navigate(`/search?q=${encodeURIComponent('')}&category=${categoryId}`);
+    navigate(`/catalog?category=${categoryId}`);
   };
 
   if (loading) {

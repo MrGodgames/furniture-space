@@ -32,6 +32,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
 }
 
 .category-tab:hover {
