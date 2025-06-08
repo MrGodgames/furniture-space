@@ -1,0 +1,260 @@
+/* Секция преимуществ */
+.features {
+  margin: 0;
+  padding: 35px 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 20px;
+  width: 100%;
+}
+
+.features-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.features-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.features-title::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 4px;
+  background: var(--gradient-primary);
+  border-radius: 2px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.feature-item {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(96, 108, 56, 0.1);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-primary);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.feature-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(96, 108, 56, 0.2);
+  border-color: var(--color-secondary);
+}
+
+.feature-item:hover::before {
+  opacity: 0.05;
+}
+
+.feature-icon {
+  width: 80px;
+  height: 80px;
+  background: var(--gradient-secondary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 25px;
+  font-size: 2rem;
+  color: white;
+  box-shadow: 0 8px 20px rgba(221, 161, 94, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.feature-item:hover .feature-icon {
+  transform: scale(1.1);
+  box-shadow: 0 12px 30px rgba(221, 161, 94, 0.4);
+}
+
+.feature-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin: 0 0 15px 0;
+  transition: color 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.feature-item:hover .feature-title {
+  color: var(--color-secondary-dark);
+}
+
+.feature-description {
+  font-size: 1rem;
+  color: #6c757d;
+  line-height: 1.6;
+  margin: 0;
+  transition: color 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.feature-item:hover .feature-description {
+  color: #495057;
+}
+
+/* Адаптивность */
+@media screen and (max-width: 1200px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+  
+  .feature-item {
+    padding: 30px 20px;
+  }
+  
+  .features-title {
+    font-size: 2rem;
+    margin-bottom: 35px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .features {
+    margin: 0;
+    padding: 25px 0;
+    border-radius: 15px;
+  }
+  
+  .features-container {
+    padding: 0 15px;
+  }
+  
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .feature-item {
+    padding: 25px 15px;
+  }
+  
+  .feature-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+  }
+  
+  .feature-title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .feature-description {
+    font-size: 0.9rem;
+  }
+  
+  .features-title {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .features {
+    padding: 20px 0;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .feature-item {
+    padding: 20px 15px;
+    margin: 0 auto;
+    max-width: 350px;
+  }
+  
+  .feature-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+  
+  .feature-title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .feature-description {
+    font-size: 0.85rem;
+  }
+  
+  .features-title {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .features {
+    margin: 30px 0;
+    padding: 25px 0;
+    border-radius: 12px;
+  }
+  
+  .features-container {
+    padding: 0 10px;
+  }
+  
+  .feature-item {
+    padding: 20px 15px;
+    border-radius: 15px;
+  }
+  
+  .feature-icon {
+    width: 55px;
+    height: 55px;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+  }
+  
+  .feature-title {
+    font-size: 1.1rem;
+  }
+  
+  .feature-description {
+    font-size: 0.8rem;
+  }
+  
+  .features-title {
+    font-size: 1.6rem;
+    margin-bottom: 25px;
+  }
+} 

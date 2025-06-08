@@ -1,17 +1,16 @@
 .sidebar {
-    width: 280px;
+    width: 260px;
     min-height: 500px;
+    max-height: 100%;
     background: linear-gradient(135deg, #606C38 0%, #4a5329 100%);
     box-shadow: 0 8px 30px rgba(96, 108, 56, 0.3);
     display: flex;
     flex-direction: column;
     border-radius: 20px;
     box-sizing: border-box;
-    margin-left: 20px;
+    margin: var(--container-padding-desktop);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    position: sticky;
-    top: 100px;
     overflow: hidden;
 }
 
@@ -21,7 +20,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 80px;
+    height: 70px;
     background: linear-gradient(135deg, #DDA15E 0%, #BC6C25 100%);
     position: relative;
     overflow: hidden;
@@ -40,7 +39,7 @@
 
 .sidebar-header p {
     margin: 0;
-    font-size: 22px;
+    font-size: 19px;
     font-weight: 700;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     z-index: 1;
@@ -50,9 +49,12 @@
 .categories {
     display: flex;
     flex-direction: column;
-    padding: 20px 15px;
-    gap: 12px;
+    padding: 15px 12px;
+    gap: 10px;
     flex: 1;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
 }
 
 .categorybut {
@@ -60,13 +62,13 @@
     align-items: center;
     color: white;
     cursor: pointer;
-    padding: 15px 20px;
+    padding: 12px 16px;
     border-radius: 12px;
-    gap: 15px;
+    gap: 12px;
     transition: all 0.3s ease;
     text-decoration: none;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 15px;
     position: relative;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -85,7 +87,7 @@
 }
 
 .bar-buttonico {
-    font-size: 18px;
+    font-size: 16px;
     min-width: 20px;
     filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
 }
@@ -95,25 +97,48 @@
     100% { transform: translateX(100%); }
 }
 
+/* Кастомный скроллбар для categories */
+.categories::-webkit-scrollbar {
+    width: 6px;
+}
+
+.categories::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.categories::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+}
+
+.categories::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
 /* Медиа-запросы для адаптивности */
 @media screen and (max-width: 1400px) {
     .sidebar {
-        width: 250px;
+        width: 240px;
         margin-left: 15px;
     }
     
     .sidebar-header {
-        height: 70px;
+        height: 65px;
     }
     
     .sidebar-header p {
-        font-size: 20px;
+        font-size: 19px;
+    }
+    
+    .categories {
+        padding: 12px 10px;
+        gap: 8px;
     }
     
     .categorybut {
-        padding: 12px 18px;
-        font-size: 15px;
-        gap: 12px;
+        padding: 10px 14px;
+        font-size: 14px;
+        gap: 10px;
     }
     
     .bar-buttonico {
@@ -123,18 +148,18 @@
 
 @media screen and (max-width: 1200px) {
     .sidebar {
-        width: 220px;
+        width: 200px;
         margin-left: 10px;
     }
     
     .categorybut {
-        padding: 10px 15px;
-        font-size: 14px;
-        gap: 10px;
+        padding: 8px 12px;
+        font-size: 13px;
+        gap: 8px;
     }
     
     .bar-buttonico {
-        font-size: 15px;
+        font-size: 14px;
     }
 }
 
@@ -228,4 +253,12 @@
     padding: 20px;
     font-size: 14px;
     opacity: 0.8;
+}
+
+/* Исправление sticky на очень больших экранах */
+@media screen and (min-width: 1600px) {
+    .sidebar {
+        width: 300px;
+        top: 120px;
+    }
 }

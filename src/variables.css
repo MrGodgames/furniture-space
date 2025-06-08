@@ -1,0 +1,104 @@
+/* CSS переменные для цветовой схемы */
+:root {
+  /* Основные цвета */
+  --color-primary: #606C38;
+  --color-primary-dark: #4a5329;
+  --color-secondary: #DDA15E;
+  --color-secondary-dark: #BC6C25;
+  --color-accent: #CB997E;
+  --color-light: #DDBEA9;
+  --color-background: #f5efcd;
+  --color-dark: #283618;
+  
+  /* Градиенты */
+  --gradient-primary: linear-gradient(135deg, #606C38 0%, #4a5329 100%);
+  --gradient-secondary: linear-gradient(135deg, #DDA15E 0%, #BC6C25 100%);
+  --gradient-hero: linear-gradient(135deg, #BC6C25 0%, #DDA15E 100%);
+  
+  /* Тени */
+  --shadow-sm: 0 2px 4px rgba(96, 108, 56, 0.1);
+  --shadow-md: 0 4px 10px rgba(96, 108, 56, 0.2);
+  --shadow-lg: 0 8px 25px rgba(96, 108, 56, 0.3);
+  --shadow-xl: 0 12px 40px rgba(96, 108, 56, 0.4);
+  
+  /* Границы радиуса */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-full: 50%;
+  
+  /* Переходы */
+  --transition-fast: 0.15s ease-in-out;
+  --transition-normal: 0.3s ease-in-out;
+  --transition-slow: 0.5s ease-in-out;
+  
+  /* Z-index уровни */
+  --z-index-base: 1;
+  --z-index-dropdown: 1000;
+  --z-index-sticky: 500;
+  --z-index-header: 1001;
+  --z-index-search: 1002;
+  --z-index-modal: 2000;
+  --z-index-tooltip: 3000;
+  --z-index-overlay: 4000;
+  
+  /* Размеры и отступы */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-xxl: 3rem;
+  
+  /* Размеры шрифта */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  
+  /* Веса шрифта */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  /* Высота строки */
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+  
+  /* Максимальная ширина контейнера */
+  --container-max-width: 1400px;
+  
+  /* Интервалы между компонентами */
+  --section-gap-mobile: 12px;
+  --section-gap-tablet: 20px;
+  --section-gap-desktop: 30px;
+  --section-gap-large: 40px;
+  
+  /* Отступы контейнеров */
+  --container-padding-mobile: 10px;
+  --container-padding-tablet: 15px;
+  --container-padding-desktop: 20px;
+  
+  /* Точки останова для адаптива */
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+}
+
+/* Темная тема (опциональная) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #1a1a1a;
+    --color-light: #888;
+  }
+} 

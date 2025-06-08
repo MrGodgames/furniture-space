@@ -1,6 +1,8 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import './variables.css'
+import './index.css'
 import { AuthProvider } from './context/AuthContext.jsx'
 import { CartProvider } from './context/CartContext.jsx'
 import App from './App.jsx'
@@ -17,6 +19,7 @@ import ProductPage from './pages/ProductPage.jsx'
 import Filter from './components/filter.jsx'
 import TopCat from './components/topcat.jsx'
 import NewProduct from './components/newproduct.jsx'
+import Features from './components/Features.jsx'
 import Register from './pages/register.jsx'
 import AdminLayout from './components/AdminLayout.jsx'
 import AdminDashboard from './pages/admin/AdminDashboard.jsx'
@@ -24,6 +27,7 @@ import AdminProducts from './pages/admin/AdminProducts.jsx'
 import AdminOrders from './pages/admin/AdminOrders.jsx'
 import AdminStatistics from './pages/admin/AdminStatistics.jsx'
 import Footer from './components/Footer.jsx'
+import './fixes.css'
 
 const Home = () => (
   <div>
@@ -38,6 +42,7 @@ const Home = () => (
       <Hero />
       <TopCat />
       <NewProduct />
+      <Features />
       </div>
       </div>
       <div className='footer-container'>

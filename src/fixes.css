@@ -1,0 +1,343 @@
+/* Исправления критических стилевых проблем */
+
+/* 1. Исправление проблем с overflow и layout shift */
+.main-container {
+  min-height: calc(100vh - 160px) !important;
+  overflow-x: hidden;
+  display: flex !important;
+  gap: 2% !important;
+}
+
+/* 2. Улучшенное исправление проблем с sticky позиционированием */
+.sidebar-container {
+  position: sticky !important;
+  top: 100px !important;
+  align-self: flex-start !important; /* Критически важно для sticky */
+  height: fit-content !important;
+  flex-shrink: 0 !important;
+}
+
+/* Обеспечиваем правильную работу sticky в разных браузерах */
+@supports (position: sticky) {
+  .sidebar-container {
+    position: -webkit-sticky !important;
+    position: sticky !important;
+  }
+}
+
+/* 3. Исправление проблем с основным контентом */
+.maincontent {
+  flex: 1 !important;
+  min-width: 0 !important; /* Предотвращает переполнение flex элемента */
+  width: 100% !important;
+}
+
+/* 4. Исправление проблем с header на мобильных */
+@media screen and (max-width: 900px) {
+  .sidebar-container {
+    position: relative !important;
+    top: auto !important;
+    align-self: auto !important;
+    height: auto !important;
+  }
+  
+  .main-container {
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+  
+  .header {
+    position: sticky !important;
+    top: 0 !important;
+  }
+}
+
+/* 5. Исправление проблем с z-index конфликтами */
+.search-box-container {
+  z-index: 1002 !important;
+  position: relative !important;
+}
+
+.search-results {
+  z-index: 1002 !important;
+  position: absolute !important;
+  top: 100% !important;
+  left: 0 !important;
+  right: 0 !important;
+}
+
+/* 6. Исправление проблем с изображениями */
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.product-image {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+/* 7. Исправление проблем с кнопками на touch устройствах */
+@media (hover: none) and (pointer: coarse) {
+  .nav-button:hover,
+  .categorybut:hover,
+  .heroic-button:hover,
+  .topcategory-item:hover,
+  .feature-item:hover {
+    transform: none !important;
+  }
+  
+  .nav-button:active,
+  .categorybut:active,
+  .heroic-button:active,
+  .topcategory-item:active,
+  .feature-item:active {
+    transform: scale(0.95) !important;
+  }
+}
+
+/* 8. Исправление проблем с прокруткой на iOS Safari */
+.search-results,
+.categories {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 9. Исправление проблем с flexbox в Safari */
+.header,
+.main-container,
+.features-grid,
+.topcatalog-container {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.main-container {
+  -webkit-align-items: flex-start;
+  align-items: flex-start;
+}
+
+/* 10. Исправление проблем с backdrop-filter */
+@supports not (backdrop-filter: blur(10px)) {
+  .user-menu {
+    background: rgba(96, 108, 56, 0.9) !important;
+  }
+  
+  .sidebar {
+    background: linear-gradient(135deg, #606C38 0%, #4a5329 100%) !important;
+  }
+}
+
+/* 11. Исправление проблем с aspect-ratio в старых браузерах */
+@supports not (aspect-ratio: 1) {
+  .heroic::before {
+    content: '';
+    display: block;
+    padding-top: 56.25%; /* 16:9 aspect ratio */
+  }
+  
+  .heroic {
+    position: relative;
+  }
+  
+  .heroic-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+/* 12. Улучшение производительности анимаций */
+.nav-button,
+.categorybut,
+.heroic-button,
+.product-card,
+.topcategory-item,
+.feature-item {
+  will-change: transform;
+}
+
+.nav-button:not(:hover):not(:active),
+.categorybut:not(:hover):not(:active),
+.heroic-button:not(:hover):not(:active),
+.product-card:not(:hover):not(:active),
+.topcategory-item:not(:hover):not(:active),
+.feature-item:not(:hover):not(:active) {
+  will-change: auto;
+}
+
+/* 13. Исправление проблем с focus accessibility */
+*:focus-visible {
+  outline: 2px solid var(--color-secondary) !important;
+  outline-offset: 2px !important;
+}
+
+/* 14. Исправление проблем с текстом на темном фоне */
+.sidebar,
+.header,
+.footer {
+  color: white;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 15. Исправление проблем с layout на очень маленьких экранах */
+@media screen and (max-width: 320px) {
+  .header {
+    padding: 0 0.5rem !important;
+  }
+  
+  .nav-button {
+    width: 35px !important;
+    height: 35px !important;
+  }
+  
+  .search-input {
+    font-size: 12px !important;
+  }
+  
+  .container,
+  .container-fluid {
+    padding: 0 8px !important;
+  }
+}
+
+/* 16. Исправление проблем с overflow на карточках продуктов */
+.product-card,
+.topcategory-item {
+  overflow: hidden !important;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+.product-name,
+.product-description,
+.feature-title,
+.feature-description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+}
+
+/* 17. Фикс для предотвращения horizontal scroll */
+* {
+  max-width: 100%;
+}
+
+.container,
+.main-container,
+.header-container,
+.footer-container,
+.features,
+.topcatalog {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* 18. Дополнительные исправления для sticky в Chrome/Safari */
+.sidebar-container {
+  -webkit-transform: translateZ(0); /* Аппаратное ускорение */
+  transform: translateZ(0);
+  backface-visibility: hidden; /* Предотвращение мерцания */
+}
+
+/* 19. Исправление высоты сайдбара для больших экранов */
+@media screen and (min-height: 800px) {
+  .sidebar {
+    max-height: calc(100vh - 140px) !important;
+  }
+}
+
+/* 20. Исправление отступов между секциями */
+.topcatalog + .features,
+.features + .topcatalog {
+  margin-top: 20px !important;
+}
+
+/* 19. Исправления для header-container */
+.header-container {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: var(--z-index-header) !important;
+  width: 100% !important;
+  overflow: visible !important; /* Важно для правильного отображения поиска */
+}
+
+.header {
+  position: relative !important; /* Убираем sticky с самого header */
+}
+
+/* 20. Исправления для компонента TopCat */
+.topcatalog {
+  contain: layout style;
+  will-change: auto;
+}
+
+.topcategory-item {
+  contain: layout style paint;
+  transform: translateZ(0); /* Аппаратное ускорение */
+  backface-visibility: hidden;
+}
+
+.topcategory-item:not(:hover) {
+  will-change: auto;
+}
+
+.topcategory-item:hover {
+  will-change: transform, box-shadow;
+}
+
+/* Исправление для изображений с медленной загрузкой */
+.category-image-container img {
+  image-rendering: auto;
+  image-rendering: crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* Fallback для backdrop-filter */
+@supports not (backdrop-filter: blur(10px)) {
+  .category-overlay {
+    background: rgba(255, 255, 255, 0.95) !important;
+  }
+}
+
+/* Исправления для лучшей доступности */
+@media (prefers-reduced-motion: reduce) {
+  .topcategory-item * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Оптимизация для медленных соединений */
+@media (prefers-reduced-data: reduce) {
+  .topcategory-item img {
+    filter: none !important;
+  }
+  
+  .image-skeleton {
+    animation: none;
+    background: #f0f0f0;
+  }
+}
+
+/* Дополнительные исправления для старых браузеров */
+@supports not (display: grid) {
+  .topcatalog-container {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+  }
+  
+  .topcategory-item {
+    flex: 0 1 300px !important;
+    margin: 15px !important;
+  }
+} 

@@ -4,21 +4,19 @@
     align-items: center;
     position: relative;
     height: 450px;
-    max-width: 1000px;
     width: 100%;
-    margin-right: 2%;
     border-radius: 20px;
     overflow: hidden;
-  }
-  
-  .heroic-image {
+}
+
+.heroic-image {
     position: relative;
     height: 100%;
     width: 100%;
     overflow: hidden;
-  }
-  
-  .heroic-image img {
+}
+
+.heroic-image img {
     position: absolute;
     top: 0;
     left: 0;
@@ -28,14 +26,14 @@
     opacity: 0;
     transition: opacity 0.8s ease-in-out;
     border-radius: 20px;
-  }
-  
-  .heroic-image img.active {
+}
+
+.heroic-image img.active {
     opacity: 1;
     z-index: 1;
-  }
-  
-  .heroic-text {
+}
+
+.heroic-text {
     display: flex;
     height: 100%;
     width: 100%;
@@ -46,49 +44,52 @@
     background-color: rgba(0, 0, 0, 0.342);
     border-radius: 20px;
     z-index: 2;
-  }
-  
-  .heroic-text h1 {
-    font-size: 3rem;
-    margin-left: 150px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.heroic-text h1 {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    margin-left: clamp(20px, 15%, 150px);
     font-weight: 700;
     margin-bottom: 10px;
     line-height: 1.2;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-  }
-  
-  .heroic-text p {
-    font-size: 1.2rem;
-    margin-left: 150px;
+}
+
+.heroic-text p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    margin-left: clamp(20px, 15%, 150px);
     margin-bottom: 25px;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
     max-width: 90%;
-  }
-  
-  .heroic-button {
+}
+
+.heroic-button {
     color: white;
-    margin-left: 150px;
+    margin-left: clamp(20px, 15%, 150px);
     display: flex;
     justify-content: center;
     align-items: center;
     border: none;
     border-radius: 20px;
-    width: 200px;
+    width: clamp(150px, 20vw, 200px);
     height: 48px;
     cursor: pointer;
     background-color: #DDA15E;
     box-shadow: 0 4px 10px rgba(221, 161, 94, 0.6);
     transition: all 0.3s ease;
     text-decoration: none;
-  }
-  
-  .heroic-button:hover {
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
+}
+
+.heroic-button:hover {
     background-color: #BC6C25;
     box-shadow: 0 4px 10px rgba(188, 108, 37, 0.9);
     transform: translateY(-3px);
-  }
-  
-  .heroic-next {
+}
+
+.heroic-next {
     color: white;
     position: absolute;
     border-radius: 25px;
@@ -105,13 +106,13 @@
     justify-content: center;
     align-items: center;
     transition: all 0.2s ease;
-  }
-  
-  .heroic-next:hover {
+}
+
+.heroic-next:hover {
     background-color: #BC6C25;
-  }
-  
-  .heroic-before {
+}
+
+.heroic-before {
     color: white;
     position: absolute;
     border-radius: 25px;
@@ -128,13 +129,13 @@
     justify-content: center;
     align-items: center;
     transition: all 0.2s ease;
-  }
-  
-  .heroic-before:hover {
+}
+
+.heroic-before:hover {
     background-color: #BC6C25;
-  }
-  
-  .slide-indicators {
+}
+
+.slide-indicators {
     position: absolute;
     bottom: 20px;
     left: 50%;
@@ -142,9 +143,9 @@
     display: flex;
     gap: 10px;
     z-index: 10;
-  }
-  
-  .indicator {
+}
+
+.indicator {
     width: 12px;
     height: 12px;
     border-radius: 50%;
@@ -152,72 +153,132 @@
     background-color: rgba(255, 255, 255, 0.5);
     cursor: pointer;
     transition: all 0.3s ease;
-  }
-  
-  .indicator.active {
+}
+
+.indicator.active {
     background-color: #DDA15E;
     transform: scale(1.2);
-  }
-  
-  .indicator:hover {
+}
+
+.indicator:hover {
     background-color: #BC6C25;
-  }
+}
 
-
-  @media screen and (max-width: 1630px){
-    .heroic{
-      height: 400px;
-      width: 800px;
+@media screen and (max-width: 1630px) {
+    .heroic {
+        height: 400px;
     }
 
-    .heroic-text h1{
-      font-size: 2rem;
-    }
-
-    .heroic-before{
-      width: 55px;
-      height: 55px;
-      border-radius: 20px;
-    }
-
-    .heroic-next{
-      width: 55px;
-      height: 55px;
-      border-radius: 20px;
-    }
-
-    .heroic-button{
-      width: 150px;
-      height: 38px;
-      font-size: 0.8rem;
+    .heroic-before,
+    .heroic-next {
+        width: 55px;
+        height: 55px;
+        border-radius: 20px;
     }
 }
 
-@media screen and (max-width: 1330px){
-  .heroic{
-    height: 400px;
-    width: 700px;
-  }
+@media screen and (max-width: 1330px) {
+    .heroic {
+        height: 380px;
+    }
+}
 
-  .heroic-text h1{
-    font-size: 2rem;
-  }
+@media screen and (max-width: 900px) {
+    .heroic {
+        height: 350px;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        border-radius: 15px;
+    }
+    
+    .heroic-text {
+        padding: 15px;
+    }
+    
+    .heroic-text h1,
+    .heroic-text p,
+    .heroic-button {
+        margin-left: 20px;
+    }
+    
+    .heroic-before,
+    .heroic-next {
+        width: 45px;
+        height: 45px;
+        left: 10px;
+        right: 10px;
+    }
+    
+    .heroic-next {
+        right: 10px;
+    }
+}
 
-  .heroic-before{
-    width: 55px;
-    height: 55px;
-    border-radius: 20px;
-  }
+@media screen and (max-width: 600px) {
+    .heroic {
+        height: 300px;
+        border-radius: 12px;
+    }
+    
+    .heroic-text {
+        padding: 10px;
+    }
+    
+    .heroic-text h1,
+    .heroic-text p,
+    .heroic-button {
+        margin-left: 15px;
+    }
+    
+    .heroic-button {
+        width: 140px;
+        height: 40px;
+        font-size: 0.8rem;
+    }
+    
+    .heroic-before,
+    .heroic-next {
+        width: 35px;
+        height: 35px;
+        left: 8px;
+        right: 8px;
+    }
+    
+    .heroic-next {
+        right: 8px;
+    }
+    
+    .slide-indicators {
+        bottom: 15px;
+        gap: 8px;
+    }
+    
+    .indicator {
+        width: 10px;
+        height: 10px;
+    }
+}
 
-  .heroic-next{
-    width: 55px;
-    height: 55px;
-    border-radius: 20px;
-  }
-
-  .heroic-button{
-    width: 150px;
-    height: 38px;
-    font-size: 0.8rem;
-  }
+@media screen and (max-width: 480px) {
+    .heroic {
+        height: 250px;
+        border-radius: 10px;
+    }
+    
+    .heroic-text h1 {
+        font-size: 1.5rem;
+        margin-bottom: 8px;
+    }
+    
+    .heroic-text p {
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+    }
+    
+    .heroic-button {
+        width: 120px;
+        height: 36px;
+        font-size: 0.75rem;
+    }
 }

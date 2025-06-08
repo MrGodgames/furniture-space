@@ -18,7 +18,7 @@ function App() {
     <header>
       <div className="header">
         <div className="logo">
-          <img src="./src/assets/images/logo.png" alt="logo" />
+          <img src="/logo.png" alt="logo" />
         </div>
         <div className='search'>
           <SearchBox isHovered={isHovered} setIsHovered={setIsHovered} />

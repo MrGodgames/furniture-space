@@ -4,13 +4,16 @@ body {
   margin: 0;
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
+  overflow-x: hidden; /* Предотвращаем горизонтальную прокрутку */
+}
+
+* {
+  box-sizing: border-box; /* Добавляем глобальный box-sizing */
 }
 
 /* Основные стили header */
 .header {
     display: flex;
-    position: sticky;
-    top: 0;
     background-color: #606C38;
     min-height: 80px;
     width: 100%;
@@ -19,7 +22,7 @@ body {
     padding: 0 1rem;
     box-sizing: border-box;
     box-shadow: 0 4px 10px rgba(96, 108, 56, 0.8);
-    z-index: 1000;
+    z-index: 1001; /* Увеличиваем z-index для правильного наложения */
     gap: 0.5rem;
 }
 
@@ -116,6 +119,7 @@ body {
     align-items: center;
     justify-content: center;
     min-width: 20px;
+    z-index: 1; /* Добавляем z-index для корректного отображения */
 }
 
 /* Стили для меню пользователя */
@@ -191,40 +195,81 @@ body {
 .maincontent {
     display: flex;
     flex-direction: column;
-    margin-top: 30px;
+    margin-top: var(--spacing-lg);
     height: 100%;
     width: 100%;
+    gap: var(--section-gap-desktop);
 }
 
 .sidebar-container {
     display: flex;
+    position: -webkit-sticky;
     position: sticky;
-    top: 100px;
-    max-height: 550px;
-    margin: 20px;
+    top: 80px;
+    max-height: calc(100vh - 80px);
+    margin: 0;
+    z-index: var(--z-index-sticky);
+    flex-shrink: 0;
+    align-self: flex-start;
 }
 
 .main-container {
     display: flex;
-    gap: 2%;
-    max-width: 1400px;
+    gap: var(--spacing-xl);
+    max-width: var(--container-max-width);
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 var(--container-padding-desktop);
+    min-height: calc(100vh - 160px);
+    align-items: flex-start;
 }
 
 .header-container {
-    height: 100%;
-    width: 100%;
     position: sticky;
-    z-index: 1000;
     top: 0;
+    z-index: var(--z-index-header);
+    width: 100%;
 }
+
 .footer-container {
-    background-color: #606C38;
-    z-index: 1000;
+    background-color: var(--color-primary);
+    z-index: var(--z-index-dropdown);
+    margin-top: var(--spacing-xxl);
 }
+
 /* Медиа-запросы для адаптивности */
+@media screen and (min-width: 1600px) {
+    .main-container {
+        max-width: 1600px;
+        gap: var(--section-gap-large);
+    }
+    
+    .maincontent {
+        gap: var(--section-gap-large);
+    }
+    
+    .sidebar-container {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 80px;
+    }
+}
+
 @media screen and (max-width: 1400px) {
+    .main-container {
+        gap: 25px;
+        padding: 0 var(--container-padding-tablet);
+    }
+    
+    .maincontent {
+        gap: 25px;
+    }
+    
+    .sidebar-container {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 80px;
+    }
+    
     .header {
         padding: 0 0.5rem;
         gap: 0.3rem;
@@ -255,6 +300,22 @@ body {
 }
 
 @media screen and (max-width: 1200px) {
+    .main-container {
+        gap: var(--section-gap-tablet);
+        padding: 0 var(--container-padding-tablet);
+    }
+    
+    .maincontent {
+        gap: var(--section-gap-tablet);
+        margin-top: var(--spacing-md);
+    }
+    
+    .sidebar-container {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 80px;
+    }
+    
     .phonenumber {
         display: none;
     }
@@ -262,10 +323,6 @@ body {
     .search {
         max-width: 320px;
         min-width: 180px;
-    }
-    
-    .main-container {
-        padding: 0 15px;
     }
 }
 
@@ -317,13 +374,25 @@ body {
     }
     
     .sidebar-container {
-        top: 140px;
+        position: relative;
+        top: auto;
+        max-height: none;
+        align-self: auto;
     }
     
     .main-container {
         flex-direction: column;
-        gap: 20px;
-        padding: 0 10px;
+        gap: var(--spacing-md);
+        padding: 0 var(--container-padding-mobile);
+    }
+    
+    .maincontent {
+        gap: var(--spacing-md);
+        margin-top: 0;
+    }
+    
+    .footer-container {
+        margin-top: calc(var(--spacing-xxl) - 20px);
     }
 }
 
@@ -366,7 +435,17 @@ body {
     }
     
     .sidebar-container {
-        top: 160px;
-        margin: 10px;
+        position: relative;
+        top: auto;
+        max-height: none;
+        align-self: auto;
+    }
+    
+    .maincontent {
+        gap: var(--section-gap-mobile);
+    }
+    
+    .footer-container {
+        margin-top: var(--spacing-xl);
     }
 }
